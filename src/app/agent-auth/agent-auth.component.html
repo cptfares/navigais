@@ -1,0 +1,73 @@
+<div class="container">
+
+    
+<div  class="signup-login" >   
+            <div *ngIf=" show" >  
+
+                   <form action="" [formGroup]="singupForm" class="signup" ngSubmit="signUp()"  >
+                   
+                   <h2 class="title">Sign up</h2>
+                   <h1>company <span style=" color:aqua">{{(userCompany)?.name}}</span> is inviting you </h1>
+
+                           <div class="input-field">
+                           <i class="name"></i>
+                           <input type="text"  formControlName="fullName" placeholder="Entre the username" >
+                           </div>
+                           <div class="input-field">
+                           <i class="mail"></i>
+                           <input type="email"  placeholder="Enter your Email"  formControlName="email" >
+                           </div>
+
+                           <div class="input-field">
+                               <i class="adress"></i>
+                               <input type="text" formControlName="adress" placeholder="Entre your adress" >
+                               </div>
+                               <div class="input-field">
+                                       <i class="city"></i>
+                                       <input type="text" formControlName="city"  placeholder="Entre tyour current city" >
+                                       </div>
+                           <div class="input-field">
+                           <i class="country"></i>
+                           <input type="text" formControlName="country" placeholder="Entre your country " >
+                           </div>
+                           <div class="input-field">
+                               <i class="phone"></i>
+                               <input type="number" formControlName="phone" placeholder="Entre your phone number " >
+                               </div>
+                           <div class="input-field">
+                           <i class="lock"></i>
+                           <input type="password" placeholder="Create a password " formControlName="password"  >
+                           </div>
+                           <div>
+                           <input type="submit" (click)="sginUp()" value="sign up" class="btn">
+                           </div> 
+                           
+                   </form>
+
+           </div>   
+           <div style="margin-left: 8rem ; " class="code" *ngIf="! show">
+            <h3>enter your invitation code de sgin up </h3>
+            <div style="margin: 0 !important;" class="input-field">
+                <i class="name"></i>
+                <input type="text"  [(ngModel)]="givencode" placeholder="Entre the username" >
+                </div>
+                <span style="color:  red;" >your code is wrong</span>
+
+                <div>
+                    <input type="submit" (click)="checkCode()" value="next" class="btn">
+                    </div> 
+
+           </div>             
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+

@@ -1,0 +1,20 @@
+.idk{
+    color: blue;
+}
+h5{
+    font-size: 1.5rem;
+}
+hr{
+    margin:0 !important  ;
+
+}
+.rowet{
+    height: 50px !important;
+}
+.rowet:hover{
+    background-color: #a9a8a8 ;
+}
+li{
+    margin-left:0 !important;
+    margin-right:0 !important;
+}

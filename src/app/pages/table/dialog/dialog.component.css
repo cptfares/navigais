@@ -1,0 +1,70 @@
+.first{
+    padding: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    background-color: rgb(180, 196, 226);
+    animation: first;
+    animation-duration: 1s;
+animation-fill-mode: forwards; 
+
+}
+@keyframes  first{
+ 0%{padding: 2%; margin-bottom: 5%;}
+    100%{padding: 5%;margin-bottom: 2%;}
+}
+.first > div {
+    margin-bottom: 2%;
+
+}
+.title{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+    
+
+}
+.title1{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+    color: rgb(190, 61, 38);
+    font-family: Georgia, serif;
+font-size: 28px;
+letter-spacing: -1.6px;
+word-spacing: 2.4px;
+
+font-weight: 700;
+
+font-style: italic;
+font-variant: small-caps;
+text-transform: uppercase;
+animation: title;
+animation-duration: 1s;
+animation-fill-mode: forwards;    
+}
+.second{
+    background-color: rgb(14, 81, 121);
+    padding: 0%;
+    color: white;
+    border-radius: 10% 0% 10% 0%;
+    margin: 10%;
+    animation: second;
+    animation-duration: 2s;
+animation-fill-mode: forwards;    
+}
+@keyframes second{
+    0%{padding: 2%; border-radius: 0% 10% 0% 10%;}
+    100%{padding: 5%;border-radius: 10% 0% 10% 0%;}
+}
+.all{
+  
+    animation: all;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes all{
+    0% {margin: 0%;}
+    100% {margin: 10%;}
+}

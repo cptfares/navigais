@@ -1,0 +1,35 @@
+
+<div class="sidebar-wrapper" style="overflow: hidden" >
+  <div class="logo">
+
+    <a  class="simple-text logo-normal">
+     Smart container
+    </a>
+  </div>
+    <ul class="nav"  >
+        <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+            <a  [routerLink]="[menuItem.path]">
+                <i class="fa {{menuItem.icon}}"></i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+    </ul>
+
+      <div class="logo">
+      </div>
+      <ul class="nav"  >
+        <li>
+            <a link="#">
+              <i  class="fa fa-question-circle" aria-hidden="true"></i>
+              <p>support</p>
+            </a>
+        </li>
+        <li>
+          <a  link="#" class="" (click)="logingout()"  routerLinkActive="active"  >
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <p>log out</p>
+          </a>
+      </li>
+    </ul>
+
+

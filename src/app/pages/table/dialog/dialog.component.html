@@ -1,0 +1,64 @@
+<div class="all">
+        <div class="title1">container 1  details</div>
+        <div class="first" >
+            <div>
+                <div style="font-family: aleo;">name</div>
+                <div>{{information["name"]}}</div>
+            
+            </div>
+            <div>
+                <div>id</div>
+                <div>{{information["id"]}}</div>
+
+            </div>
+            <div>
+                    <div>destination</div>
+                    <div style="display: flex;flex-direction: row;display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="margin-right: 5%;margin-bottom: 4%;">start</div>
+                            <div>{{information["start"]}}</div>
+                        </div>
+                        <div>
+                            <div style="margin-bottom: 4%;">arrive</div>
+                            <div>{{information["arrive"]}}</div>
+                        </div>
+
+                    </div>
+                    
+
+
+            </div>
+        </div>
+        
+        <div class="second">
+            <div class="title">sensors</div>
+            <div  style="display: flex;justify-content: space-between;">
+                <div>
+                                <div *ngIf="information.temp!=null">
+                                    temperature
+
+                                </div>
+                                <div>55</div>
+                </div>
+                <div>
+                    <div >
+                        temperature
+
+                    </div>
+                    <div>55</div>
+                </div>
+                <div>
+                    <div >
+                        temperature
+
+                    </div>
+                    <div>55</div>
+                </div>
+
+            </div>
+    </div>
+
+
+
+
+</div>

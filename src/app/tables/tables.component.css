@@ -1,0 +1,97 @@
+thead {
+    box-shadow: 0 5px 10px #e1e5ee;
+    font-size: medium;
+    color: gray;
+    font-family: serif;
+  }
+
+  th {
+    padding: 1%;
+    text-transform: uppercase;
+  
+    font-weight: 900;
+  }
+
+  td {
+    padding: 1%;
+  }
+
+  a {
+    text-decoration: none;
+    color:#2962ff;
+  }
+
+  .status {
+    border-radius:  0.2rem;
+    background-color: red;
+    padding: 1%;
+    text-align: center;
+}
+   
+
+
+  
+
+  .add{
+     margin-left:80% ;
+  }
+  .img{
+      width: 20%;
+      height: 30%;
+  }
+  .search{
+    background-color: rgb(233, 233, 224);
+    border-radius: 10%;
+    height: 10%;
+  }
+  .d-flex {
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+  }
+  .searchbar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 2%;
+   
+  }
+
+  .alltable{
+    display: flex;
+    flex-direction: column;
+    
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px #e1e5ee;
+    background-color: white;
+    text-align: left;
+    overflow: hidden;
+    width: 80%;
+    margin: 10%;
+  }
+  .addbtn{
+    width: 20%;
+  }
+.name{
+ display: flex;
+ flex-direction: row;
+ 
+}
+#name{
+ margin-left: 2%;
+}
+.activatebtn{
+ border-radius: 10%;
+ background-color: chocolate;
+ border-color: cornsilk;
+ color: cornsilk;
+
+}
+.thead{
+ background-color: rgb(226, 217, 217);
+}
+footer{
+ display: flex;
+ flex-direction: row;
+ justify-content:space-around;
+}
