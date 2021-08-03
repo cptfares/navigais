@@ -20,16 +20,16 @@ export class ContainerService {
   )
   currentdetail = this.detail.asObservable();
   path="/containers"
-  containerRef : AngularFireList<Container>
+  containerRef :Array<Observable<object>>
   container=[]
   company1: Company;
   ida:string
   ignore=true
-  listofcontainers
+  listofcontainers:Array<Observable<object>>
+  containerstList
 
   constructor(private database : AngularFireDatabase ,private userinfo:UserInfoService, private afs : AngularFirestore) {
-    this.containerRef = this.database.list(this.path)
-
+    this.containerRef=[]
    }
    setUp(container:Container):any{
      console.log("1")
@@ -72,13 +72,38 @@ export class ContainerService {
   this.afs.collection('companies').doc(_id).set(data,{merge:true})
 
 }
+getagents():Array<Observable<object>>{
+  this.listofcontainers=[]
+  let user =this.userinfo.getUserInfo().subscribe(user=>{
+      this.afs.collection("companies").doc(`${user.companyId}`).valueChanges().subscribe((res:Company)=>{
+        this.containerstList=res.containers
+        console.log( this.containerstList)
+        this.containerstList.forEach(element => {
+          this.database.object("/containers/"+element).valueChanges().subscribe((res:Container)=>{
+            console.log(res)
+            let agent= res
+            this.getagentslist(agent)
+            console.log(  this.listofcontainers)
+          })         
+        });
+      })    
+    })
+    console.log(  this.listofcontainers)
+    return ( this.listofcontainers)
+  
 
- async  addcontainer(container: Container,_id):Promise<any>{
-    this.containerRef.set(_id,container)
+
+  
   }
-   allContainers():AngularFireList<Container>{
-     return this.containerRef
+  private getagentslist(agent){
+    this.listofcontainers.push(agent)
+    console.log(  this.listofcontainers)
+    return ( this.listofcontainers)
+
    }
+
+
+
    changeDetail(newValue: object){
 
     this.detail.next(newValue)

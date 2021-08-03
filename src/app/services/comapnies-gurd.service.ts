@@ -72,7 +72,6 @@ export class ComapniesGurdService {
     
    private getagentslist(agent){
      this.listofagents.push(agent)
-
     }
     deleteAgent(uid,data:Company){
       this.afs.collection("users").doc(`${uid}`).delete()
