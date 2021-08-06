@@ -93,7 +93,7 @@ export class SetupContainerComponent implements OnInit {
       active:true
 
     }
-    this.containerService.setUp(this.container11)
+    this.containerService.update1(this.container11)
 
 
 

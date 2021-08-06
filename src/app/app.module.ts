@@ -44,6 +44,7 @@ import { SetupContainerComponent } from './pages/setup-container/setup-container
   imports: [
     BrowserAnimationsModule,
     CommonModule ,
+
    
     RouterModule.forRoot(AppRoutes,{
       useHash: true

@@ -65,6 +65,13 @@ export class ContainerService {
    }
 
 
+
+   update1(Container2:Container){
+    this.database.object("/containers/"+Container2.id).set(Container2)
+
+   }
+
+
  update(data:Company,_id){       
   this.afs.collection('companies').doc(_id).set(data,{merge:true})
 
