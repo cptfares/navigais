@@ -10,7 +10,7 @@
           <div (click)="getMarkers()" class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">total containers</p>
-              <p class="card-title">60
+              <p class="card-title">{{(dataRows)?.length}}
                 <p>
             </div>
           </div>
@@ -37,7 +37,7 @@ see more
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">online containers</p>
-              <p class="card-title">40
+              <p class="card-title">2
                 <p>
             </div>
           </div>
@@ -62,7 +62,7 @@ see more        </div>
           <div class="col-7 col-md-8">
             <div class="numbers">
               <p class="card-category">offline containers</p>
-              <p class="card-title">20
+              <p class="card-title">0
                 <p>
             </div>
           </div>
@@ -140,6 +140,87 @@ see more        </div>
   </div>
   <!-- <ng-content></ng-content>      <table-cmp></table-cmp> -->
 </div>
+<div style="display: flex;flex-direction: column;">
+  <div class="row" style="  -ms-overflow-style: none!important;
+  scrollbar-width: none!important;">
+    <div class="col-md-12">
+      <div class="card">
+        
+        <div class="card-header" style="display: flex; align-items: center; justify-content:space-between ;" >
+          <h4 class="card-title"> all containers: </h4>
+          <div style="float: right !important  ;" >
+            <div class="addbtn">
+              <button type="button" class="btn btn-warning" >+ Add container</button>
+              </div>
+          </div>
+        </div>
+  
+        <div class="card-body">
+          <div class="table-responsive"  style="     overflow: auto;
+          ">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  ID
+                </th>
+                <th>
+                 name
+                </th>
+                <th>
+                  destination
+                </th>
+                <th>
+                  destination
+                </th>
+                <th>
+                  alerts
+                </th>
+                <th class="text-right">
+                  statut
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor='let data of dataRows; let i=index;' >
+                  <td>
+                      {{data.name}}
+                  </td>
+                  <td>
+                    {{data.id}}
+                  </td>
+                  <td>
+                    {{data.start}}
+                  </td>
+                  <td>
+                    {{data.arrive}}
+                  </td>
+                  <td>
+                    {{data.description}}
+                  </td>
+                  <td class="text-right">
+                    <div *ngIf="data.active else offline">
+                      <button class="btn btn-success">active</button>
+                    </div>
+                    
+                    <ng-template #offline>
+                   <button class="btn btn-alert">offline</button>
+                    </ng-template>
+                  </td>   
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  </div>
+  
+  
+  
+  
+  
 
   
   

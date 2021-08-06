@@ -1,64 +1,65 @@
-<div class="all">
-        <div class="title1">container 1  details</div>
-        <div class="first" >
-            <div>
-                <div style="font-family: aleo;">name</div>
-                <div>{{information["name"]}}</div>
-            
-            </div>
-            <div>
-                <div>id</div>
-                <div>{{information["id"]}}</div>
-
-            </div>
-            <div>
-                    <div>destination</div>
-                    <div style="display: flex;flex-direction: row;display: flex; justify-content: space-between;">
-                        <div>
-                            <div style="margin-right: 5%;margin-bottom: 4%;">start</div>
-                            <div>{{information["start"]}}</div>
+<div class="all" >
+    <div class="first">
+        <div class="des">Description</div>
+        <div class="map"><img alt src="../assets/mapWorld.svg"></div>
+    </div>
+    <div class="second">
+        <div class="loula">
+            <div class="sensors">
+                    <div class="sousou">Sensors</div>
+                    <div>
+                        <div style="display: flex; flex-direction: row;">
+                            <p>temperature</p>
+                            <input class="no" placeholder="min" type="num">
+                            <input class="no" placeholder="max" type="num">
                         </div>
-                        <div>
-                            <div style="margin-bottom: 4%;">arrive</div>
-                            <div>{{information["arrive"]}}</div>
-                        </div>
-
+                        <div><p>touch</p></div>
+                        <div><p>humidity</p></div>
+                        <div><p>pressure</p></div>
+                        <div><p>tracking</p></div>
+                        <div><p>security</p></div>
                     </div>
-                    
+            </div>
+            <div class="other">
+                <div>
+                    <div>company data : </div>
+                    <div class="data">Company name : </div>
+                    <div class="data">ID</div>
+                    <div>Added by : </div>
+                    <form ngSubmit="edit()">
+                        <input class="input" placeholder="worker name">
+                        <input class="input" placeholder="added at">
+                        <button class="button" style="margin-right: 50%;">edit</button>
+                    </form>
+                    <div></div>
+                </div>
 
 
             </div>
+
+        </div>
+        <div class="thenya">
+            <div>
+                <div class="data" style="color: black;" (click)="add()">Add a new container + </div>
+                <div class="data" style="color: black;" >Notifications/ Alerts</div>  
+            </div>
+            <div class="others">
+                <div class="data">location </div>
+                <div class="data">original distance</div>
+                <div class="data">done</div>
+                <div class="data">still</div>
+                <mat-dialog-action>
+                    <button class="btn btn-primaryg" mat-button mat-dialog-close>close</button>
+                </mat-dialog-action>
+
+            </div>
+
+        </div>
+        <div class="theltha">
+            <div class="data"> display any current Notifications or data</div>
+
         </div>
         
-        <div class="second">
-            <div class="title">sensors</div>
-            <div  style="display: flex;justify-content: space-between;">
-                <div>
-                                <div *ngIf="information.temp!=null">
-                                    temperature
-
-                                </div>
-                                <div>55</div>
-                </div>
-                <div>
-                    <div >
-                        temperature
-
-                    </div>
-                    <div>55</div>
-                </div>
-                <div>
-                    <div >
-                        temperature
-
-                    </div>
-                    <div>55</div>
-                </div>
-
-            </div>
     </div>
-
-
-
 
 </div>

@@ -1,70 +1,130 @@
-.first{
-    padding: 5%;
+.all{
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    background-color: rgb(180, 196, 226);
-    animation: first;
-    animation-duration: 1s;
-animation-fill-mode: forwards; 
-
 }
-@keyframes  first{
- 0%{padding: 2%; margin-bottom: 5%;}
-    100%{padding: 5%;margin-bottom: 2%;}
-}
-.first > div {
-    margin-bottom: 2%;
-
-}
-.title{
+.first{
+    width: 40%;
     display: flex;
-    justify-content: center;
-    margin-bottom: 5%;
+    flex-direction: column;
     
 
 }
-.title1{
+.second{
+    width: 60%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: -3%;
+}
+.des{
+    background-color: rgb(15, 15, 75);
+    margin: 2%;
+    width: 100%;
+    height: 40%;
+    padding: 3%;
+    font-family: poppins;
+    font-size: 30px;
+    color: rgb(210, 228, 238);
+
+}
+.map{
+    margin: 2%;
+    width: 100%;
+    height: 70%;
+    background-color: rgb(221, 223, 215);
+    border: burlywood;
+    border-style: solid;
+   
+}
+.loula{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+   
+}
+.other{
+    width: 70%;
+    height: 100%;
+    background-color: rgb(252, 249, 247);
+    padding: 5%;
+ 
+    margin-bottom: 5%;
+    margin-left: 1%;
+
+}
+.sousou{
+    font-size: 25px;
+    margin-bottom: 3%;
     display: flex;
     justify-content: center;
-    margin-bottom: 5%;
-    color: rgb(190, 61, 38);
-    font-family: Georgia, serif;
-font-size: 28px;
-letter-spacing: -1.6px;
-word-spacing: 2.4px;
+}
+.sensors{
+    width: 50%;
+    height: 100%;
+    background-color: rgb(249, 255, 255);
+    padding: 3%;
+    margin: 3%;
+    margin-top: -3%;
+}
+.data{
+    background-color: rgb(253, 253, 253);
+    border-radius: 10%;
+    padding: 4%;
+    margin-bottom: 2%;
+    color: rgb(187, 186, 186);
+}
+.no{
+    width: 15%;
+    margin-left:2% ;
+}
+.input{
+    background-color: rgb(253, 253, 253);
+    border-radius: 10%;
+    padding: 4%;
+    margin: 2%;
+    color: rgb(187, 186, 186);
+    border:none;
 
-font-weight: 700;
+}
+.button {
+    background:linear-gradient(to bottom, #7892c2 5%, #b6c1cf 100%);
+    background-color:#7892c2;
+    border-radius:28px;
+    border:1px solid #a6a8b0;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:17px;
+    padding:1%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 50%;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #dadee6;
+    display: flex;
+    justify-content: center;
+}
+.button:hover {
+    background:linear-gradient(to bottom, #b6c1cf 5%, #7892c2 100%);
+    background-color:#b6c1cf;
+}
+.button:active {
+    position:relative;
+    top:1px;
+}
+.thenya{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    margin-bottom:5% ;
+    margin-top: 10%;
 
-font-style: italic;
-font-variant: small-caps;
-text-transform: uppercase;
-animation: title;
-animation-duration: 1s;
-animation-fill-mode: forwards;    
 }
-.second{
-    background-color: rgb(14, 81, 121);
-    padding: 0%;
-    color: white;
-    border-radius: 10% 0% 10% 0%;
-    margin: 10%;
-    animation: second;
-    animation-duration: 2s;
-animation-fill-mode: forwards;    
-}
-@keyframes second{
-    0%{padding: 2%; border-radius: 0% 10% 0% 10%;}
-    100%{padding: 5%;border-radius: 10% 0% 10% 0%;}
-}
-.all{
-  
-    animation: all;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-}
-@keyframes all{
-    0% {margin: 0%;}
-    100% {margin: 10%;}
+.others{
+    width: 60%;
 }

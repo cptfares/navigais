@@ -31,9 +31,13 @@ export class AddContainerComponent implements OnInit {
 
 
 
+
+
+
   constructor(private containerService: ContainerService) { }
 
   ngOnInit(): void {
+
   }
   onclick(){
     this.container={
@@ -59,17 +63,36 @@ export class AddContainerComponent implements OnInit {
         max:this.pressureMax,
         cureent:null
       },
-      tracking: true,
-      infared:  true,
-      touch: true,
-      flame: true,
-      description: this.description
+      tracking: this.tracking,
+      infared:  this.infared,
+      touch: null,
+      flame:this.flame,
+      description: this.description,
+      owner:null,
+      active:true
 
     }
     console.log(this.container)
     this.containerService.setUp(this.container)
 
-
+    this.name =null
+    this. id= null
+    this.start=null
+    this.arrive=null
+    this.tempurature=null
+    this.tempuratureMax=null
+    this.tempuratureMin=null
+    this.humidity=null
+    this.humidityMax=null
+    this.humidityMin=null
+    this.pressure=null
+    this.pressureMax=null
+    this.pressureMin=null
+    this.tracking=null
+    this.infared=null
+    this.touch=null
+    this.flame=null
+    this.description=null
   }
 
 }

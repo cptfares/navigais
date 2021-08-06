@@ -21,6 +21,8 @@ export class ComapniesGurdService {
 
   constructor(private db: AngularFireDatabase ,private userinfo:UserInfoService, private afs: AngularFirestore , private ath: AngularFireAuth ) {
     this.companyRef= this.db.list(this.path)
+    this.agentList=[]
+
     this.listofagents=[]
    }
 
@@ -42,6 +44,7 @@ export class ComapniesGurdService {
    }
 
   getagents():Array<Observable<object>>{
+    this.agentList=[]
     this.listofagents=[]
     let user =this.userinfo.getUserInfo().subscribe(user=>{
 
@@ -63,6 +66,7 @@ export class ComapniesGurdService {
        
       })
       console.log(this.listofagents)
+      this.agentList=[]
       return (this.listofagents)
     
 

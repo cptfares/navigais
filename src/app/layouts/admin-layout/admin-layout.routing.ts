@@ -14,9 +14,9 @@ import { SetupContainerComponent } from 'app/pages/setup-container/setup-contain
 
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'setup container',      component: SetupContainerComponent  },
+    { path: 'setup_container',      component: AddContainerComponent    },
     { path: 'overview',      component: OverviewComponent  },
-    { path: 'containers',           component: AddContainerComponent },
+    { path: 'containers',           component: SetupContainerComponent },
     { path: 'tables',          component: TableComponent },
     { path: 'agents',          component: UserComponent},
     { path: 'profil',     component: TypographyComponent },

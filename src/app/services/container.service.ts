@@ -22,57 +22,54 @@ export class ContainerService {
   path="/containers"
   containerRef :Array<Observable<object>>
   container=[]
+  number : number
+  container1 : Container
   company1: Company;
   ida:string
   ignore=true
-  listofcontainers:Array<Observable<object>>
+  listofcontainers:Array<Observable<Container>>
   containerstList
+  chckedContainer:Container
+  letit:boolean
 
   constructor(private database : AngularFireDatabase ,private userinfo:UserInfoService, private afs : AngularFirestore) {
     this.containerRef=[]
    }
-   setUp(container:Container):any{
-     console.log("1")
-        this.userinfo.getUserInfo().subscribe((user)=>{
-          console.log("2")
- 
+   setUp(Container2:Container):any{
+      this.letit=false
+     
+   this.database.object("/containers/"+Container2.id).set(Container2)
+       this.userinfo.getUserInfo().subscribe((user)=>{
+        Container2.owner= user.companyId
        this.afs.collection("companies").doc(`${user.companyId}`).valueChanges().subscribe((res:Company)=>{
             console.log(this.ignore)
         if(this.ignore){
           console.log(this.ignore)
 
         this.company1=res
-        this.company1.containers.push(container.id)
+        this.company1.containers.push(Container2.id)
        this.update(this.company1,user.companyId)
-       console.log("3")
        this.ignore=false
-       console.log(this.ignore)
-
+                 console.log("bara rabi m3ak")
        return this.company1
-
-        }
-        console.log(this.ignore)
-
-      
+    }  
     })
-        
-
-    
-
-
-
-
     })
+
+
+
+
+
     this.ignore=true
 
    }
 
 
- private update(data:Company,_id){       
+ update(data:Company,_id){       
   this.afs.collection('companies').doc(_id).set(data,{merge:true})
 
 }
-getagents():Array<Observable<object>>{
+getagents():Array<Observable<Container>>{
   this.listofcontainers=[]
   let user =this.userinfo.getUserInfo().subscribe(user=>{
       this.afs.collection("companies").doc(`${user.companyId}`).valueChanges().subscribe((res:Company)=>{
@@ -95,9 +92,12 @@ getagents():Array<Observable<object>>{
 
   
   }
+
+
+
   private getagentslist(agent){
     this.listofcontainers.push(agent)
-    console.log(  this.listofcontainers)
+    console.log( this.listofcontainers)
     return ( this.listofcontainers)
 
    }
@@ -122,6 +122,22 @@ getagents():Array<Observable<object>>{
 containerslist(data){
   this.listofcontainers=data
   
+}
+getcontainer(containerid):Container {
+
+  this.database.object("/containers/"+containerid).valueChanges().subscribe((res:Container)=>{
+    this.container1= res
+  })
+  return  this.container1
+}
+
+setContainer(container:Container){
+   this.chckedContainer=container
+
+
+}
+getContainer(){
+  return this.chckedContainer
 }
 
   

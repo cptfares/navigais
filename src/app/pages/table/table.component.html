@@ -1,6 +1,5 @@
 <div style="display: flex;flex-direction: column;">
-<div class="row" style="  -ms-overflow-style: none!important;
-scrollbar-width: none!important;">
+<div class="row" style="  -ms-overflow-style: none!important;scrollbar-width: none!important;">
   <div class="col-md-12">
     <div class="card">
       
@@ -25,10 +24,10 @@ scrollbar-width: none!important;">
                name
               </th>
               <th>
-                destination
+                start
               </th>
               <th>
-                destination
+                arrive
               </th>
               <th>
                 alerts
@@ -40,10 +39,10 @@ scrollbar-width: none!important;">
             <tbody>
               <tr *ngFor='let data of dataRows; let i=index;' (click)="openDialog(data)" >
                 <td>
-                    {{data.name}}
+                    {{data.id}}
                 </td>
                 <td>
-                  {{data.id}}
+                  {{data.name}}
                 </td>
                 <td>
                   {{data.start}}
@@ -51,11 +50,11 @@ scrollbar-width: none!important;">
                 <td>
                   {{data.arrive}}
                 </td>
-                <td>
-                  {{data.description}}
+                <td   >
+                  <i style="font-size:35px ;color:red; " class="fas fa-exclamation-triangle"></i>
                 </td>
                 <td class="text-right">
-                  <div *ngIf="data[5] else offline">
+                  <div *ngIf="data.active  else offline">
                     <button class="btn btn-success">active</button>
                   </div>
                   
