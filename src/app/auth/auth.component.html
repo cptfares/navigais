@@ -1,77 +1,107 @@
 <div class="container">
-    <div class="forms_container" >
-            <img src="../assets/container.png" class="img" alt="">
-        <div class="signup-login" >   
-             <div *ngIf="type==true; else f">  
-    
-                            <form action="" [formGroup]="singupForm" class="signup" ngSubmit="signUp()"  >
-                            
-                            <h2 class="title">Sign up</h2>
-                                    <div class="input-field">
-                                    <i class="name"></i>
-                                    <input type="text"  formControlName="fullName" placeholder="Entre the username" >
-                                    </div>
-                                    <div class="input-field">
-                                    <i class="mail"></i>
-                                    <input type="email"  placeholder="Enter your Email"  formControlName="email" >
-                                    </div>
-                                    <div class="input-field">
-                                    <i class="company"></i>
-                                    <input type="text" formControlName="company"  placeholder="Entre the company name" >
-                                    </div>
-                                    <div class="input-field">
-                                        <i class="adress"></i>
-                                        <input type="text" formControlName="adress" placeholder="Entre your adress" >
-                                        </div>
-                                        <div class="input-field">
-                                                <i class="city"></i>
-                                                <input type="text" formControlName="city"  placeholder="Entre tyour current city" >
-                                                </div>
-                                    <div class="input-field">
-                                    <i class="country"></i>
-                                    <input type="text" formControlName="country" placeholder="Entre your country " >
-                                    </div>
-                                    <div class="input-field">
-                                        <i class="phone"></i>
-                                        <input type="number" formControlName="phone" placeholder="Entre your phone number " >
-                                        </div>
-                                    <div class="input-field">
-                                    <i class="lock"></i>
-                                    <input type="password" placeholder="Create a password " formControlName="password"  >
-                                    </div>
-                                    <div>
-                                    <input type="submit" (click)="sginUp()" value="sign up" class="btn">
-                                    </div> 
-                                    
-                            </form>
-                            <p>already have an account?</p>
-                            <button class="btn btn-primary"  (click)="login()">log in</button>
-                    </div>                
-      
-
-        </div>
-        <ng-template #f> 
-            <form action="" [formGroup]="loginForm" ngSubmit="logIn()"  class="signup">
-             
-                    <h2 class="title">Sign in</h2>
-                               
-                                <div class="input-field">
-                                 <i class="mail"></i>
-                               <input type="email" placeholder="Enter your Email" formControlName="email"  >
+  <div class="forms_container" >
+          <img src="../assets/container.png" class="img" alt="">
+      <div class="signup-login" >   
+           <div *ngIf="type==true; else f">  
+  
+                          <form action="" [formGroup]="singupForm" class="signup" ngSubmit="signUp()"  >
+                          
+                          <h2 class="title">Sign up</h2>
+                                  <div class="input-field">
+                                  <i class="name"></i>
+                                  <input type="text"  formControlName="fullName" placeholder="Enter the username" >
+                                  <div *ngIf="singupForm.controls.fullName.invalid && submitted " style="color: red; position:relative;z-index: 1000; width: 400px;margin-top: 15px;">
+                                      name not valid
+                                  </div>
+                                
+                                  </div>
+                                  <div class="input-field">
+                                  <i class="mail"></i>
+                                  <input type="email"  placeholder="Enter your Email"  formControlName="email" >
+                                  <div *ngIf="singupForm.controls.email.invalid && submitted " style="color: red; position:relative;z-index: 1000; width: 400px;margin-top: 15px;">
+                                    email not valid
                                 </div>
-                               
-                             
-                               <div class="input-field">
+                                  </div>
+                                  <div class="input-field">
+                                  <i class="company"></i>
+                                  <input type="text" formControlName="company"  placeholder="Entre the company name" >
+                                  <div *ngIf="singupForm.controls.company.invalid && submitted " style="color: red; position:relative;z-index: 1000; width: 400px;margin-top: 15px;">
+                                    name not valid
+                                </div>
+                                  
+                                  </div>
+                                  <div class="input-field">
+                                      <i class="adress"></i>
+                                      <input type="text" formControlName="adress" placeholder="Entre your adress" >
+                                      </div>
+                                      <div class="input-field">
+                                              <i class="city"></i>
+                                              <input type="text" formControlName="city"  placeholder="Entre tyour current city" >
+                                              <div *ngIf="singupForm.controls.city.invalid && submitted " style="color: red; position:relative;z-index: 1000; width: 400px;margin-top: 15px;">
+                                                city not valid
+                                            </div>
+                                            
+                                            </div>
+                                  <div class="input-field">
+                                  <i class="country"></i>
+                                  <input type="text" formControlName="country" placeholder="Entre your country " >
+                                  <div *ngIf="singupForm.controls.country.invalid && submitted " style="color: red; position:relative;z-index: 1000; width: 400px;margin-top: 15px;">
+                                    country not valid
+                                </div>
+                                  </div>
+                                  <div class="input-field">
+                                      <i class="phone"></i>
+                                      <input type="number" formControlName="phone" placeholder="Entre your phone number " >
+                                      <div *ngIf="singupForm.controls.phone.invalid && submitted " style="color: red; position:relative;z-index: 1000; width: 400px;margin-top: 15px;">
+                                        phone number not valid
+                                    </div>
+                                      </div>
+                                  <div class="input-field">
                                   <i class="lock"></i>
-                                <input type="password"  placeholder="type your password " formControlName="password" >
-                               </div>
-                                <div>
-                                  <input type="submit" (click)="logIn()"   value="sign in"  class="btn">
-                                </div> 
+                                  <input type="password" placeholder="Create a password " formControlName="password"  >
+                                  <div  *ngIf="singupForm.controls.password.invalid && submitted" style="color: red;position:relative;z-index: 1000; width: 400px;margin-top: 15px;">the password should be capital letter, one number and contains 5-10 lettrs</div>
+                                  </div>
+                                  <div class="input-field">
+                                    <i class="lock"></i>
+                                    <input type="checkbox"  formControlName="checkbox"  >
+                                    <p style="width: 500px;">agree to the terms</p>
+                                    <div  *ngIf="singupForm.controls.checkbox.invalid && submitted" style="color: red; position:relative;z-index: 1000; width: 400px;margin-top: 15px;">you shoud agree first</div>
+                                    </div>
+                                  <div>
+                                    
+                                    
+                                  <input type="submit" (click)="sginUp()" value="sign up" class="btn">
+                                  </div> 
+                                  
+                          </form>
+                          <p>already have an account?</p>
+                          <button class="btn btn-primary"  (click)="login()">log in</button>
+                  </div>                
+    
+
+      </div>
+      <ng-template #f> 
+          <form action="" [formGroup]="loginForm" ngSubmit="logIn()"  class="signup">
+           
+                  <h2 class="title">Sign in</h2>
                              
-                         </form>
-                         <p>don t  have an account?</p>
-                         <button class="btn btn-success" (click)="signup()">sign up</button>
-         </ng-template>
-    </div>
+                              <div class="input-field">
+                               <i class="mail"></i>
+                             <input type="email" placeholder="Enter your Email" formControlName="email"  >
+                              </div>
+                             
+                           
+                             <div class="input-field">
+                                <i class="lock"></i>
+                              <input type="password"  placeholder="type your password " formControlName="password" >
+                             </div>
+                              <div>
+                                <input type="submit" (click)="logIn()"   value="sign in"  class="btn">
+                              </div> 
+                           
+                       </form>
+                       <p>don t  have an account?</p>
+                       <button class="btn btn-success" (click)="signup()">sign up</button>
+       </ng-template>
+  </div>
 </div>

@@ -1,31 +1,31 @@
-<div class="all" >
+<div class="all">
     <div class="first">
-        <div class="des">Description</div>
-        <div class="map"><img alt src="../assets/mapWorld.svg"></div>
+        <div class="des">some</div>
+        <div class="map">  <img alt src="../assets/mapWorld.svg"></div>
+     
     </div>
     <div class="second">
         <div class="loula">
             <div class="sensors">
-                    <div class="sousou">Sensors</div>
+                    <div class="sousou" style="margin-bottom: 3%;">Current Sensors value</div>
                     <div>
                         <div style="display: flex; flex-direction: row;">
-                            <p>temperature</p>
-                            <input class="no" placeholder="min" type="num">
-                            <input class="no" placeholder="max" type="num">
+                            
+                            
                         </div>
-                        <div><p>touch</p></div>
-                        <div><p>humidity</p></div>
-                        <div><p>pressure</p></div>
-                        <div><p>tracking</p></div>
-                        <div><p>security</p></div>
+                        <div><p>touch               :<span>secure</span> </p></div>
+                        <div><p>humidity            : <span>42</span></p></div>
+                        <div><p>pressure            :  <span>10</span></p></div>
+                        <div><p>tracking            :  <span>sea</span></p></div>
+                        <div><p>temperature           :  <span>40Â°C</span></p></div>
                     </div>
             </div>
             <div class="other">
                 <div>
-                    <div>company data : </div>
-                    <div class="data">Company name : </div>
-                    <div class="data">ID</div>
-                    <div>Added by : </div>
+                    <div class="sousou">container data : </div>
+                    <div class="data">Container name : {{information['name']}} </div>
+                    <div class="data">ID : {{information['id']}}</div>
+                    <div class="sousou">Added by : </div>
                     <form ngSubmit="edit()">
                         <input class="input" placeholder="worker name">
                         <input class="input" placeholder="added at">
@@ -39,26 +39,32 @@
 
         </div>
         <div class="thenya">
-            <div>
-                <div class="data" style="color: black;" (click)="add()">Add a new container + </div>
-                <div class="data" style="color: black;" >Notifications/ Alerts</div>  
+            <div class="alerting">
+                
+                <div   >description</div>  
+                <div>{{information['description']}}</div>
             </div>
             <div class="others">
-                <div class="data">location </div>
-                <div class="data">original distance</div>
-                <div class="data">done</div>
-                <div class="data">still</div>
-                <mat-dialog-action>
-                    <button class="btn btn-primaryg" mat-button mat-dialog-close>close</button>
-                </mat-dialog-action>
+                <div class="encore">
+                        <div >destination :{{information['arrive']}}</div>
+                        <div >original distance  :  45km</div>
+                        
+                </div>
+                <div style="display: flex;flex-direction: row; ">
+                    <mat-dialog-action>
+                        <button class="btn btn-primary" mat-button mat-dialog-close>close</button>
+                    </mat-dialog-action>
+                    <div>
+                        <button class="btn btn-warning" (click)="unactive()">unactivate </button>
+                    </div>
+
+                </div>
+                
 
             </div>
 
         </div>
-        <div class="theltha">
-            <div class="data"> display any current Notifications or data</div>
-
-        </div>
+      
         
     </div>
 

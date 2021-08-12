@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { of, from, fromEvent, interval,Observable} from 'rxjs';
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { Company } from './company';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 
 
 
@@ -38,7 +39,7 @@ export class AuthService {
   user : Observable <User>;
   isLoggedIn:boolean
 
-  constructor( private firebaseAuth : AngularFireAuth , private afs: AngularFirestore , private route :Router ) { 
+  constructor( private firebaseAuth : AngularFireAuth , public db:AngularFireDatabase, private afs: AngularFirestore , private route :Router ) { 
     this.isLoggedIn=false;
     this.firebaseAuth.onAuthStateChanged((user)=>{
       if(user){
@@ -93,12 +94,17 @@ export class AuthService {
     }
     private userData(user,data:User) {
       const userRef : AngularFirestoreDocument<User> =  this.afs.doc(`users/${user.uid}`)
-
+      const userf : AngularFireObject <User> = this.db.object('users/'+user.uid)
+      userf.set(data)
       return userRef.set(data)
 
     }
     setComapnies1 (user,company){
     const userRef : AngularFirestoreDocument<any> =  this.afs.doc(`companies/${user.uid+"1"}`)
+    const userf : AngularFireObject <User> = this.db.object('companies/'+user.uid+'1')
+    userf.set(company)
+
+
     return userRef.set(company)
 
 

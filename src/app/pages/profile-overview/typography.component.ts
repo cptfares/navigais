@@ -6,6 +6,7 @@ import { User } from 'app/services/user';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 
 
@@ -31,7 +32,7 @@ export class TypographyComponent{
     role:string
     password:string
 
-    constructor(public firebaseAuth : AngularFireAuth , private afs : AngularFirestore , public userInfos:UserInfoService,  private afAuth : AuthService , ) { }
+    constructor(public firebaseAuth : AngularFireAuth , private afs : AngularFirestore , public userInfos:UserInfoService,  private afAuth : AuthService , public db:AngularFireDatabase ) { }
     ngOnInit() {
 
         this.userInfos.getUserInfo().subscribe(user=>{
@@ -70,6 +71,20 @@ export class TypographyComponent{
           "edit date": Date.now()
 
         }, {merge:true})
+        this.db.object("users/"+this.userid).set({
+          "fullName": this.fullname,
+          "email": this.email,
+          "phone": this.phone,
+          "company": this.company,
+          "city": this.city,
+          "country": this.country,
+          "role": this.role,
+          "edit date": Date.now()
+
+
+
+        })
+
         }
 
 

@@ -31,6 +31,8 @@ export class ContainerService {
   containerstList
   chckedContainer:Container
   letit:boolean
+  containerRef1 : AngularFireList<Container>
+
 
   constructor(private database : AngularFireDatabase ,private userinfo:UserInfoService, private afs : AngularFirestore) {
     this.containerRef=[]
@@ -74,6 +76,9 @@ export class ContainerService {
 
  update(data:Company,_id){       
   this.afs.collection('companies').doc(_id).set(data,{merge:true})
+  this.database.object('companies/'+_id).set(data)
+
+  
 
 }
 getagents():Array<Observable<Container>>{
@@ -146,6 +151,10 @@ setContainer(container:Container){
 getContainer(){
   return this.chckedContainer
 }
+update11(key: string, value:any):Promise<any>{
+  return this.containerRef1.update(key, value)
+
+    }
 
   
  

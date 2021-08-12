@@ -85,6 +85,8 @@ export class ComapniesGurdService {
 
     private update(data:Company){
       this.afs.collection('users').doc(data.key).set(data, {merge:true})
+      this.db.object('users/'+data.key).set(data)
+      
 
     }
 

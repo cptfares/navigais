@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Company } from './company';
 import { Agent } from './agent';
 import { map } from 'rxjs/operators';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AgentAuthService {
   res
 
 
-  constructor( private afs: AngularFirestore ,private firebaseAuth : AngularFireAuth , public firebase:AngularFirestore ) {
+  constructor( private afs: AngularFirestore ,private firebaseAuth : AngularFireAuth , public firebase:AngularFirestore,public db:AngularFireDatabase ) {
    }
   checkCode(code:string)  {
      let answer=false
@@ -63,7 +64,8 @@ sginupUser(user,value:Company,data:Agent,code ): Promise<any> {
 }
 private userData(user,data) {
   const userRef : AngularFirestoreDocument<Agent> =  this.afs.doc(`users/${user.uid}`)
-  
+  const userf : AngularFireObject <Agent> = this.db.object('users/'+user.uid)
+  userf.set(data)
 
   return userRef.set(data)
 
@@ -73,6 +75,7 @@ updateDoc(value:Company,id,code ) {
   console.log(code1)
   value.agents.push(id)
   console.log(value)
+  this.db.object('users/'+code1).set(value)
 
     this.afs.collection('companies').doc(code1).set(value, {merge:true})
 }
