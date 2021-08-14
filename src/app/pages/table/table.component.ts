@@ -48,8 +48,7 @@ export class TableComponent implements OnInit{
         console.log(data);
         this.received= data;
         this.containerservice.setContainer(this.received)
-        this.containerservice.changeDetail(this.received)
-          this.route.navigate(['dashboard/containers'])
+
 
         this.dialogRef.open(DialogComponent, {
             width: '55%',

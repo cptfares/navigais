@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import {Router, RouterModule} from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
+import { PresenceService } from 'app/services/presence.service';
 
 
 
@@ -34,9 +35,9 @@ export const ROUTES: RouteInfo[] = [
 
 export class SidebarComponent implements OnInit {
     @Output() islogout = new EventEmitter<void>()
-    constructor(public fireservice: AuthService, private fAuth: AngularFireAuth , public route:Router){}
+    constructor(public fireservice: AuthService, public presnce: PresenceService  ,private fAuth: AngularFireAuth , public route:Router){}
     logingout(){
-        this.fAuth.signOut()
+        this.presnce.signOut()
         this.route.navigate(['/login'])
 
 

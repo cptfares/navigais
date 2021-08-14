@@ -19,27 +19,7 @@ export class AgentAuthService {
 
   constructor( private afs: AngularFirestore ,private firebaseAuth : AngularFireAuth , public firebase:AngularFirestore,public db:AngularFireDatabase ) {
    }
-  checkCode(code:string)  {
-     let answer=false
-    this.firebase.collection('companies').valueChanges().subscribe((res)=>
-      res.forEach((a:Company)=>{
-            if ( code==a.admin){
-              console.log("awjdwaj")
-              answer= true
-         
-        }
-      })
-   
-    
-  
-    )
-    console.log(answer)
-    return this.answer
- 
 
-
-
-}
 setCodel(code){
 
   this.givenCode=code
@@ -72,10 +52,11 @@ private userData(user,data) {
 }
 updateDoc(value:Company,id,code ) {
   const code1=code+"1"
+  const userf : AngularFireObject <Company> = this.db.object("companies/"+code1)
   console.log(code1)
   value.agents.push(id)
   console.log(value)
-  this.db.object('users/'+code1).set(value)
+  userf.set(value)
 
     this.afs.collection('companies').doc(code1).set(value, {merge:true})
 }

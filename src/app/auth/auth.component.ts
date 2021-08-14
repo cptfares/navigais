@@ -40,7 +40,8 @@ export class AuthComponent implements OnInit {
       'phone': new FormControl (0,Validators.required),
       'password': new FormControl ("",Validators.required),
       "role": new FormControl ("admin"),
-      "companyId":new FormControl ("")
+      "companyId":new FormControl (""),
+      "status":new FormControl ("offline")
 
     })
     this.loginForm = new FormGroup({
@@ -58,9 +59,9 @@ async sginUp() {
     else{
         this.company={
         name:this.singupForm.value.company,
-        agents: [],
+        agents:['hello', 'world'],
         admin:null,
-        containers:[],
+        containers:['hello', 'world'],
       }
       this.fireservice.sginupUser(this.singupForm.value,this.singupForm.value,this.company).then(async result=>{
         if (result==null ){

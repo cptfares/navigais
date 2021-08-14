@@ -13,23 +13,23 @@
                             
                             
                         </div>
-                        <div><p>touch               :<span>secure</span> </p></div>
-                        <div><p>humidity            : <span>42</span></p></div>
-                        <div><p>pressure            :  <span>10</span></p></div>
-                        <div><p>tracking            :  <span>sea</span></p></div>
-                        <div><p>temperature           :  <span>40Â°C</span></p></div>
+                        <div><p>touch               :<span>{{information.touch.current}}</span> </p></div>
+                        <div><p>humidity            : <span>{{information.humidity .current}}</span></p></div>
+                        <div><p>pressure            :  <span>{{information.pressure.current}}</span></p></div>
+                        <div><p>tracking            :  <span>{{information.tracking .current}}</span></p></div>
+                        <div><p>temperature           :  <span>{{information.temperature .current}}</span></p></div>
                     </div>
             </div>
             <div class="other">
                 <div>
                     <div class="sousou">container data : </div>
-                    <div class="data">Container name : {{information['name']}} </div>
-                    <div class="data">ID : {{information['id']}}</div>
+                    <div class="data">Container name : {{information.name}} </div>
+                    <div class="data">ID : {{information.id}}</div>
                     <div class="sousou">Added by : </div>
                     <form ngSubmit="edit()">
                         <input class="input" placeholder="worker name">
                         <input class="input" placeholder="added at">
-                        <button class="button" style="margin-right: 50%;">edit</button>
+                        <button class="button" (click)="change()" mat-button mat-dialog-close style="margin-right: 50%;">edit</button>
                     </form>
                     <div></div>
                 </div>

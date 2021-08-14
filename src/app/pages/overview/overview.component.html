@@ -109,7 +109,7 @@ see more        </div>
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col" (click)= "getnum()" >
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">Agents:</h4>
@@ -127,7 +127,11 @@ see more        </div>
                 {{agent.fullName}}
                 <br />
                 <span >
-                  <small>Offline</small>
+                  <small       [ngClass]="{
+                    'is-success':  agent.status  === 'online',
+                    'is-warning': agent.status  === 'away',
+                    'is-danger':  agent.status  === 'offline'
+                }"  >{{agent.status}}</small>
                 </span>
               </div>
             </div>

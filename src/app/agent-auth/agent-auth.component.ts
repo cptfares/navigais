@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -30,7 +31,7 @@ export class AgentAuthComponent implements OnInit {
   
 
 
-  constructor( public dialog : MatDialog,public firebase:AngularFirestore, public at : AgentAuthService, public agentAuth:AgentAuthService, private companyGrud:ComapniesGurdService,   private fireservice : AuthService, private route : Router) { }
+  constructor( public dialog : MatDialog, public db:AngularFireDatabase   ,public firebase:AngularFirestore, public at : AgentAuthService, public agentAuth:AgentAuthService, private companyGrud:ComapniesGurdService,   private fireservice : AuthService, private route : Router) { }
 
   ngOnInit(): void {
     this.singupForm= new FormGroup({
@@ -43,7 +44,8 @@ export class AgentAuthComponent implements OnInit {
       'country': new FormControl ("",Validators.required),
       'phone': new FormControl (0,Validators.required),
       'password': new FormControl ("",Validators.required),
-      "role": new FormControl ("agent")
+      "role": new FormControl ("agent"),
+      "status":new FormControl ("offline")
 
     })
     // const dia=this.dialog.open(AuthDialogComponent, {
@@ -56,8 +58,8 @@ export class AgentAuthComponent implements OnInit {
     // })
   }
 
-  async  checkCode() {
-    this.firebase.collection('companies').valueChanges().subscribe((res)=>
+ async checkCode() {
+    this.db.list('companies').valueChanges().subscribe((res)=>
       res.forEach((a:Company)=>{
             if ( this.givencode==a.admin){
              this.show= true

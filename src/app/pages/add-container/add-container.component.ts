@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Container } from 'app/services/container';
 import { ContainerService } from 'app/services/container.service';
+import { UserInfoService } from 'app/services/user-info.service';
 
 @Component({
   selector: 'app-add-container',
@@ -34,14 +36,18 @@ export class AddContainerComponent implements OnInit {
 
 
 
-  constructor(private containerService: ContainerService) { }
+  constructor(private containerService: ContainerService , private fauth: AngularFireAuth, public cont:UserInfoService ) { }
 
   ngOnInit(): void {
 
   }
   onclick(){
-    this.container={
+    this.userUID=this.cont.getUserInfo()
+
+   this.container={
       name : this.name,
+      owner: "akdlkds",
+      active:true,
       id : this.id,
       start :this.start,
       arrive :this.arrive,
@@ -68,12 +74,14 @@ export class AddContainerComponent implements OnInit {
       touch: null,
       flame:this.flame,
       description: this.description,
-      owner:null,
-      active:true
+
 
     }
     console.log(this.container)
     this.containerService.setUp(this.container)
+
+
+
 
     this.name =null
     this. id= null

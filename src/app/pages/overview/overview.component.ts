@@ -21,13 +21,21 @@ export class OverviewComponent implements OnInit {
   numcontainers: Array<any>
   num: number
   agentslist:object[]=[]
+  data 
+  data1 
+
   containers: any ;
   online
   offline
  dataRows :Array<Observable<Container>>
 
   constructor(private comapnies: ComapniesGurdService, private companiesRef: ComapniesGurdService, public firebase:AngularFirestore, public route : Router, public containerservice: ContainerService ) {
-
+    this.agentslist=[]
+    this.dataRows=[]
+    this.agentslist=[]
+this.dataRows=[]
+this.agentslist=this.comapnies.getagents()
+this.dataRows=this.containerservice.getagents()
   }
 
   ngOnInit(){
@@ -53,8 +61,12 @@ export class OverviewComponent implements OnInit {
     headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
 
 };
-this.agentslist=this.comapnies.getagents()
-this.dataRows=this.containerservice.getagents()
+
+
+
+console.log(this.agentslist[1])
+
+
 
 
 
@@ -63,19 +75,17 @@ console.log(this.dataRows)
 
 
 }
+
 setup(){
   this.route.navigate(['dashboard/setup_container'])
 
 }
-getnum(array:Array<object>){
-  return array.length
+getnum(){
+  this.comapnies.clear()
+
 
 }
-ngOnDestroy(): void {
-  this.dataRows=null
-  this.agentslist=null
-  
-}
+
 
 
 

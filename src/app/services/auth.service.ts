@@ -51,7 +51,7 @@ export class AuthService {
       this.user = this.firebaseAuth.authState.pipe(
         switchMap(user => {
         if (user) {
-         return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+         return this. db.object<User>("users/"+user.uid).valueChanges();
         } else {
         of()
         }

@@ -63,6 +63,8 @@ export class SetupContainerComponent implements OnInit {
     console.log(this.container)
     this.container11={
       name : this.container.name ,
+      owner:this.container.owner,
+      active:true,
       id : this.container.id,
       start :this.start,
       arrive :this.arrive,
@@ -88,9 +90,7 @@ export class SetupContainerComponent implements OnInit {
       infared:  this.infared,
       touch: null,
       flame:this.flame,
-      description: this.description,
-      owner:this.container.owner,
-      active:true
+      description: this.description
 
     }
     this.containerService.update1(this.container11)

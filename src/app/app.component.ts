@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PresenceService } from './services/presence.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Component } from '@angular/core';
 
 export class AppComponent{
 
-constructor( ){
+constructor( public presnce: PresenceService ){
 
 }
     ngOnInit(){

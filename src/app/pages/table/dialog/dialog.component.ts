@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { Company } from 'app/services/company';
+import { Container } from 'app/services/container';
 import { ContainerService } from 'app/services/container.service';
 
 @Component({
@@ -7,16 +11,24 @@ import { ContainerService } from 'app/services/container.service';
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
-information:object;
+information:Container;
 sensors =["temp", "hum","touch", "infrared","flame", "laser"]
-  constructor(private detailed: ContainerService) { }
+  constructor(private dialogRef: MatDialog,private detailed: ContainerService , public route: Router ) { }
 
   ngOnInit(): void {
-   this.detailed.currentdetail.subscribe(result=>{
-      console.log(result);
-      this.information=result
-    });
+
+      this.information=this.detailed.chckedContainer
+
     
+  }
+  unactive(){
+    this.detailed.deactive(this.information.id)
+  }
+  change(){
+    this.detailed.changeDetail(      this.information)
+    this.route.navigate(['dashboard/containers'])
+    
+
   }
 
 }

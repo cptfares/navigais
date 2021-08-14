@@ -43,7 +43,7 @@ export class ContainerService {
    this.database.object("/containers/"+Container2.id).set(Container2)
        this.userinfo.getUserInfo().subscribe((user)=>{
         Container2.owner= user.companyId
-       this.afs.collection("companies").doc(`${user.companyId}`).valueChanges().subscribe((res:Company)=>{
+       this.database.object("companies/"+user.companyId).valueChanges().subscribe((res:Company)=>{
             console.log(this.ignore)
         if(this.ignore){
           console.log(this.ignore)
@@ -84,11 +84,18 @@ export class ContainerService {
 getagents():Array<Observable<Container>>{
   this.listofcontainers=[]
   let user =this.userinfo.getUserInfo().subscribe(user=>{
-      this.afs.collection("companies").doc(`${user.companyId}`).valueChanges().subscribe((res:Company)=>{
+      this.database.object("companies/"+user.companyId).valueChanges().subscribe((res:Company)=>{
+     this.listofcontainers.map( () =>      this.listofcontainers.pop())    
+
         this.containerstList=res.containers
+        this.containerstList.splice(0,1)
+        this.containerstList.splice(0,1)
+
         console.log( this.containerstList)
         this.containerstList.forEach(element => {
           this.database.object("/containers/"+element).valueChanges().subscribe((res:Container)=>{
+            this.listofcontainers.map( () =>      this.listofcontainers.pop())    
+
             console.log(res)
             let agent= res
             this.getagentslist(agent)
@@ -122,7 +129,7 @@ getagents():Array<Observable<Container>>{
    }
  gecontainers() {
   this.userinfo.getUserInfo().subscribe(user=>{
-      this.afs.collection("companies").doc(`${user.companyId}`).valueChanges().subscribe((res:Company)=>{
+      this.database .object("companies/"+user.companyId).valueChanges().subscribe((res:Company)=>{
           this.containerslist(res.containers)
       })
       
@@ -134,6 +141,10 @@ getagents():Array<Observable<Container>>{
 containerslist(data){
   this.listofcontainers=data
   
+}
+deactive(containerid){
+  this.database.object("/containers/"+containerid).update({active:false})
+
 }
 getcontainer(containerid):Container {
 
