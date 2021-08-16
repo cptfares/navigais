@@ -39,14 +39,22 @@ export class AddContainerComponent implements OnInit {
   constructor(private containerService: ContainerService , private fauth: AngularFireAuth, public cont:UserInfoService ) { }
 
   ngOnInit(): void {
+    let data=new Date()
+    console.log(data )
+
 
   }
   onclick(){
-    this.userUID=this.cont.getUserInfo()
+    this.fauth.authState.subscribe(user=>{
+      this.userUID=user.uid
+    })
+
 
    this.container={
+    adate:new Date().getTime(),
+    fdate:new Date().getTime(),
       name : this.name,
-      owner: "akdlkds",
+      owner: this.userUID, 
       active:true,
       id : this.id,
       start :this.start,
@@ -79,6 +87,7 @@ export class AddContainerComponent implements OnInit {
     }
     console.log(this.container)
     this.containerService.setUp(this.container)
+    this.containerService.test(this.container)
 
 
 

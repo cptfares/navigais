@@ -1,4 +1,6 @@
 export class Container{
+    adate:any;
+    fdate:any;
     name : string;
     id : string;
     start :string;
