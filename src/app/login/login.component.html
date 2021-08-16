@@ -1,0 +1,39 @@
+<body>
+    <div class="design">
+      <div class="circle">
+      </div>
+      <div class="semi"></div>
+    </div>
+    <div class="astro">
+    </div>
+    <div class="star1"></div>
+    <div class="star"></div>
+    <div class="star2"></div>
+    <div class="qw">
+      <h3>Welcome Back !</h3> 
+    </div>
+    <div class="qw0">
+      <h4>We are happy to see you again .</h4>
+    </div>
+      
+    <div class="center">
+      <h1>Login</h1>
+    <form method="post" [formGroup]="loginForm" ngSubmit="logIn()"  >
+      <div class="int">
+        <input type="text" formControlName="email" required>
+        <span></span>
+        <label>Username</label>
+      </div>
+      <div class="int">
+        <input type="password" formControlName="password" required>
+        <span></span>
+        <label>Password</label>
+      </div>
+      <div class="for">Forgot Password?</div>
+      <input type="submit" value="login" (click)="logIn()"  >
+      <div style="cursor: pointer;"  class="come">
+        Not a member ? <a style="cursor: pointer;" (click)="login()">Join Us</a>
+      </div>
+    </form>
+    </div>
+  </body>

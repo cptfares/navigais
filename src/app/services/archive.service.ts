@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 import { Company } from './company';
 import { UserInfoService } from './user-info.service';
 
@@ -8,9 +9,11 @@ import { UserInfoService } from './user-info.service';
 })
 export class ArchiveService {
   vergin=true
-  archive:Array<object>=[]
 
-  constructor(public db:AngularFireDatabase,private userinfo:UserInfoService) { }
+  archive
+
+  constructor(public db:AngularFireDatabase,private userinfo:UserInfoService) { 
+  }
   
   setarchive(archive){
 
@@ -44,16 +47,29 @@ export class ArchiveService {
   }
 
   getarchive(){
-    let user =this.userinfo.getUserInfo().subscribe(res=>{
-      this.db.object("comapnies/"+res.companyId).valueChanges().subscribe((res:Company)=>{
-        this.archive=res.archive
-        this.archive.shift()
-        this.archive.shift()
 
-      })
+    let user =this.userinfo.getUserInfo().subscribe(user=>{
+    this.db.object("companies/"+user.companyId).valueChanges().subscribe((res:Company)=>{
+      this.archive=res
+      console.log( this.archive) 
+      return this.archive 
+
+
+
+
+      
 
     })
-    return this.archive
+    return this.archive 
+
+    
+    
+   
+  })
+  return this.archive 
+
+
+
 
   }
   
