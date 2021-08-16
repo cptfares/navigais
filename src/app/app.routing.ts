@@ -7,9 +7,12 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AgentAuthComponent } from './agent-auth/agent-auth.component';
+import { LoginComponent } from './login/login.component';
+import { SginUpComponent } from './sgin-up/sgin-up.component';
 
 export const AppRoutes: Routes = [
-  {path:'login', component: AuthComponent },
+  {path:'sgin-up', component: SginUpComponent },
+  {path:'login', component: LoginComponent },
   {path:"agent-auth", component: AgentAuthComponent},
 
 

@@ -8,4 +8,5 @@ export class Company{
     admin: string
     containers:Array<string>
     archive:Array<object>
+    coll:Array<string>
 }

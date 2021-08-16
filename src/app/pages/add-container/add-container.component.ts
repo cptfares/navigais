@@ -52,7 +52,7 @@ export class AddContainerComponent implements OnInit {
 
    this.container={
     adate:new Date().getTime(),
-    fdate:new Date().getTime(),
+    fdate: 0,
       name : this.name,
       owner: this.userUID, 
       active:true,

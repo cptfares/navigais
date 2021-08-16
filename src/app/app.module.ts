@@ -25,6 +25,8 @@ import { DialogComponent } from './pages/table/dialog/dialog.component';
 import { AddContainerComponent } from './pages/add-container/add-container.component';
 import { SetupContainerComponent } from './pages/setup-container/setup-container.component';
 import { ArchiveComponent } from './pages/archive/archive.component';
+import { LoginComponent } from './login/login.component';
+import { SginUpComponent } from './sgin-up/sgin-up.component';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import { ArchiveComponent } from './pages/archive/archive.component';
     AddContainerComponent,
     SetupContainerComponent,
     ArchiveComponent,
+    LoginComponent,
+    SginUpComponent,
   
 
   ],
