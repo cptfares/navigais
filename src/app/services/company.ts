@@ -7,4 +7,5 @@ export class Company{
     agents:Array<string>
     admin: string
     containers:Array<string>
+    archive:Array<object>
 }

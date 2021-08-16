@@ -24,6 +24,7 @@ import { AgentAuthComponent } from './agent-auth/agent-auth.component';
 import { DialogComponent } from './pages/table/dialog/dialog.component';
 import { AddContainerComponent } from './pages/add-container/add-container.component';
 import { SetupContainerComponent } from './pages/setup-container/setup-container.component';
+import { ArchiveComponent } from './pages/archive/archive.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { SetupContainerComponent } from './pages/setup-container/setup-container
     DialogComponent,
     AddContainerComponent,
     SetupContainerComponent,
+    ArchiveComponent,
   
 
   ],

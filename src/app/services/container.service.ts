@@ -57,6 +57,10 @@ export class ContainerService {
     }  
     })
     })
+    this.database.object("/containers/"+Container2.id+"/archive").valueChanges().subscribe(res=>{
+
+    })
+
 
 
 
@@ -166,7 +170,9 @@ update11(key: string, value:any):Promise<any>{
   return this.containerRef1.update(key, value)
 
     }
-
+test(con:Container){
+  this.database.object("/containers/42121").set(this.container)
+}
   
  
 }

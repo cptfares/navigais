@@ -13,11 +13,11 @@
                             
                             
                         </div>
-                        <div><p>touch               :<span>{{information.touch.current}}</span> </p></div>
-                        <div><p>humidity            : <span>{{information.humidity .current}}</span></p></div>
-                        <div><p>pressure            :  <span>{{information.pressure.current}}</span></p></div>
-                        <div><p>tracking            :  <span>{{information.tracking .current}}</span></p></div>
-                        <div><p>temperature           :  <span>{{information.temperature .current}}</span></p></div>
+                        <div><p>touch               : </p></div>
+                        <div><p>humidity            : </p></div>
+                        <div><p>pressure            :  </p></div>
+                        <div><p>tracking            :  </p></div>
+                        <div><p>temperature           :  </p></div>
                     </div>
             </div>
             <div class="other">
@@ -27,7 +27,8 @@
                     <div class="data">ID : {{information.id}}</div>
                     <div class="sousou">Added by : </div>
                     <form ngSubmit="edit()">
-                        <input class="input" placeholder="worker name">
+                        <p>{{information.owner}}</p>
+                        <input class="input" value="{{information.owner}}" placeholder="worker name">
                         <input class="input" placeholder="added at">
                         <button class="button" (click)="change()" mat-button mat-dialog-close style="margin-right: 50%;">edit</button>
                     </form>
@@ -42,11 +43,11 @@
             <div class="alerting">
                 
                 <div   >description</div>  
-                <div>{{information['description']}}</div>
+                <div>{{information.description}}</div>
             </div>
             <div class="others">
                 <div class="encore">
-                        <div >destination :{{information['arrive']}}</div>
+                        <div >destination :{{information.arrive}}</div>
                         <div >original distance  :  45km</div>
                         
                 </div>

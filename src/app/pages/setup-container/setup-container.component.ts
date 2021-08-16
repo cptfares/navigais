@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Container } from 'app/services/container';
 import { ContainerService } from 'app/services/container.service';
+import { now } from 'moment';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -62,6 +63,8 @@ export class SetupContainerComponent implements OnInit {
  onclick(){
     console.log(this.container)
     this.container11={
+      adate: this.container.adate ,
+      fdate:new Date(),
       name : this.container.name ,
       owner:this.container.owner,
       active:true,
