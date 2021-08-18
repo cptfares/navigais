@@ -1,14 +1,14 @@
 
-<div class="sidebar-wrapper" style="overflow: hidden" >
+<div class="sidebar-wrapper" style="overflow: hidden" style="color: #051e34;" >
   <div class="logo">
 
     <a  class="simple-text logo-normal">
      Smart container
     </a>
   </div>
-    <ul class="nav"  >
-        <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
-            <a  [routerLink]="[menuItem.path]">
+    <ul class="nav"  style="color: #051e34;"  >
+        <li   *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+            <a   [routerLink]="[menuItem.path]">
                 <i class="fa {{menuItem.icon}}"></i>
                 <p>{{menuItem.title}}</p>
             </a>
@@ -17,7 +17,7 @@
 
       <div class="logo">
       </div>
-      <ul class="nav"  >
+      <ul class="nav" style="color: #051e34;"  >
         <li>
             <a link="#">
               <i  class="fa fa-question-circle" aria-hidden="true"></i>

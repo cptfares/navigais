@@ -68,7 +68,8 @@ export class AgentAuthComponent implements OnInit {
                admin: a.admin,
                containers:a.containers,
                agents:a.agents,
-               archive:a.archive
+               archive:a.archive,
+               coll:a.coll
 
 
               

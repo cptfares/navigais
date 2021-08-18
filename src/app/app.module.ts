@@ -27,6 +27,10 @@ import { SetupContainerComponent } from './pages/setup-container/setup-container
 import { ArchiveComponent } from './pages/archive/archive.component';
 import { LoginComponent } from './login/login.component';
 import { SginUpComponent } from './sgin-up/sgin-up.component';
+import { CollaborationComponent } from './pages/collaboration/collaboration.component';
+import { Ng2SearchPipeModule } from "ng2-search-filter";
+import { Ng2OrderModule } from "ng2-order-pipe";
+import { NgxPaginationModule } from "ngx-pagination";
 
 
 @NgModule({
@@ -44,12 +48,16 @@ import { SginUpComponent } from './sgin-up/sgin-up.component';
     ArchiveComponent,
     LoginComponent,
     SginUpComponent,
+    CollaborationComponent,
   
 
   ],
   imports: [
     BrowserAnimationsModule,
     CommonModule ,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule,
 
    
     RouterModule.forRoot(AppRoutes,{

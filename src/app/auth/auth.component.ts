@@ -63,6 +63,7 @@ async sginUp() {
         admin:null,
         containers:['hello', 'world'],
         archive:[{world:"ad"}, {world:"ad"}],
+        coll:['hello', 'world']
       }
       this.fireservice.sginupUser(this.singupForm.value,this.singupForm.value,this.company).then(async result=>{
         if (result==null ){

@@ -19,6 +19,7 @@ export const ROUTES: RouteInfo[] = [
     { path: 'containers',         title: 'add container',        icon:'fa-plus-square-o',    class: '' },
     { path: 'tables',          title: 'containers',              icon:'fa-pie-chart',      class: '' },
     { path: 'agents',          title: 'agents',              icon:' fa-users',      class: '' },
+    { path: 'archive',     title: 'archive',         icon:' fa-archive',       class: '' },
     { path: 'maps',          title: 'Maps',              icon:'fa-map',      class: '' },
     
 
@@ -31,6 +32,7 @@ export const ROUTES: RouteInfo[] = [
     moduleId: module.id,
     selector: 'sidebar-cmp',
     templateUrl: 'sidebar.component.html',
+    styleUrls: ['./style.css']
 })
 
 export class SidebarComponent implements OnInit {

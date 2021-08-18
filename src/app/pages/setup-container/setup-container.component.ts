@@ -13,6 +13,9 @@ export class SetupContainerComponent implements OnInit {
   container: Container
   container11:Container
   userUID
+  Name:string
+  name:string 
+  coll:string
   start:string
   arrive:string
   tempurature:boolean
@@ -41,6 +44,7 @@ export class SetupContainerComponent implements OnInit {
   ngOnInit(): void {
    this.container= this.containerService.getContainer()
    console.log(this.container.humidity.active)
+   this.Name=this.container.name
   this.start=this.container.start
     this.arrive=this.container.arrive
     this.tempurature= this.container.temperature.active
@@ -64,8 +68,8 @@ export class SetupContainerComponent implements OnInit {
     console.log(this.container)
     this.container11={
       adate: this.container.adate ,
-      fdate:new Date(),
-      name : this.container.name ,
+      fdate:new Date().getTime(),
+      name :   this.Name ,
       owner:this.container.owner,
       active:true,
       id : this.container.id,
@@ -96,7 +100,9 @@ export class SetupContainerComponent implements OnInit {
       description: this.description
 
     }
+
     this.containerService.update1(this.container11)
+
 
 
 

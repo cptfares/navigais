@@ -2,6 +2,18 @@
   <form>
   <h1 style="padding-top: 20px;" >add your container</h1>
     <div class="row">
+      <div class="col-md-6 pr-2">
+        <div class="form-group">
+          <label>collaboration</label>
+          <input type="text" class="form-control"  [(ngModel)]="coll"  name="coll"   placeholder="collaboration" >
+        </div>
+      </div>
+      <div class="col-md-6 pr-2">
+        <div class="form-group">
+          <label>name</label>
+          <input type="text" class="form-control"  [(ngModel)]="Name" name="Name"   placeholder="name" >
+        </div>
+      </div>
             <div class="col-md-6 pr-2">
       <div class="form-group">
         <label>start</label>
@@ -14,6 +26,7 @@
         <input type="text" class="form-control"  [(ngModel)]="arrive" name="name4"   placeholder="arrive" >
       </div>
     </div>
+    
     </div>
 
   <table class="table">
