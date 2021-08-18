@@ -18,7 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr  *ngFor='let data of archive | orderBy: key : reverse | paginate:{itemsPerPage:10,currentPage:p} '  >
+      <tr  *ngFor='let data of archive | orderBy: key : reverse | paginate:{itemsPerPage:5,currentPage:p} '  >
         <th scope="row"> {{data.id}}</th>
         <td>
           {{data.name}}

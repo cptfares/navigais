@@ -10,7 +10,9 @@ import { UserInfoService } from 'app/services/user-info.service';
   styleUrls: ['./archive.component.css']
 })
 export class ArchiveComponent implements OnInit {
-  archive
+  archive:Array<any>
+  archive2:Array<any>
+
   name:any
   p:number=1
 
@@ -21,11 +23,14 @@ export class ArchiveComponent implements OnInit {
       this.db.object("companies/"+user.companyId).valueChanges().subscribe((res:Company)=>{
         console.log(res)
         this.archive=res.archive
-        this.archive.shift()
-        this.archive.shift()
+
+
+
         console.log( this.archive) 
       })
     })
+ 
+
   }
   key='id';
   reverse:boolean=false;
