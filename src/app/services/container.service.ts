@@ -92,6 +92,7 @@ getagents():Array<Observable<Container>>{
      this.listofcontainers.map( () =>      this.listofcontainers.pop())    
 
         this.containerstList=res.containers
+        console.log(this.containerstList)
         this.containerstList.splice(0,1)
         this.containerstList.splice(0,1)
 

@@ -41,18 +41,21 @@ export class AddContainerComponent implements OnInit {
   ngOnInit(): void {
     let data=new Date()
     console.log(data )
+    this.fauth.authState.subscribe(user=>{
+
+      return this.userUID=  user.uid
+     })
 
 
   }
   onclick(){
-    this.fauth.authState.subscribe(user=>{
-      this.userUID=user.uid
-    })
+
+    console.log(this.userUID)
 
 
    this.container={
     adate:new Date().getTime(),
-    fdate: 0,
+    fdate:new Date().getTime(),
       name : this.name,
       owner: this.userUID, 
       active:true,
@@ -87,8 +90,8 @@ export class AddContainerComponent implements OnInit {
     }
     console.log(this.container)
     this.containerService.setUp(this.container)
-    this.containerService.test(this.container)
 
+    
 
 
 

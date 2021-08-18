@@ -43,8 +43,6 @@
                     <div class="sousou">Added by : </div>
                     <form ngSubmit="edit()">
                         <p>{{information.owner}}</p>
-                        <input class="input" value="{{information.owner}}" placeholder="worker name">
-                        <input class="input" placeholder="added at">
                         <button class="button" (click)="change()" mat-button mat-dialog-close style="margin-right: 50%;">edit</button>
                     </form>
                     <div></div>
@@ -55,17 +53,9 @@
 
         </div>
         <div class="thenya">
-            <div class="alerting">
-                
-                <div   >description</div>  
-                <div>{{information.description}}</div>
-            </div>
+
             <div class="others">
-                <div class="encore">
-                        <div >destination :{{information.arrive}}</div>
-                        <div >original distance  :  45km</div>
-                        
-                </div>
+
                 <div style="display: flex;flex-direction: row; ">
                     <mat-dialog-action>
                         <button class="btn btn-primary" mat-button mat-dialog-close>close</button>

@@ -1,2 +1,38 @@
-dsfdssd
-<p>{{archive}}</p>
+
+<nav class="navbar" >
+    <input type="text" name="name" class="form-control" [(ngModel)]="name" (ngModelChange)="sreach()" placeholder="enter containers name"    >
+
+
+</nav>
+
+
+<table class="table" back style="background-color: white;" >
+    <thead>
+      <tr>
+        <th (click)="sort('id')"  scope="col">ID &nbsp; <i class="fa  fa-sort"  ></i> </th>
+        <th (click)="sort('name')" scope="col">name &nbsp; <i class="fa  fa-sort"  ></i> </th>
+        <th (click)="sort('satrt')" scope="col">satrt &nbsp; <i class="fa  fa-sort"  ></i></th>
+        <th (click)="sort('satrt')" scope="col">arrive &nbsp; <i class="fa  fa-sort"  ></i></th>
+        <th (click)="sort('date')" scope="col">date &nbsp; <i class="fa  fa-sort"  ></i></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor='let data of archive | orderBy: key : reverse | paginate:{itemsPerPage:5,currentPage:p} '  >
+        <th scope="row"> {{data.id}}</th>
+        <td>
+          {{data.name}}
+        </td>
+        <td>
+          {{data.start}}
+        </td>
+        <td>
+          {{data.arrive}}
+        </td>
+        <td>
+            {{data.fdate}}
+          </td>
+      </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </table>

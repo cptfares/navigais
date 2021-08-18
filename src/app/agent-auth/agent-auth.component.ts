@@ -36,11 +36,10 @@ export class AgentAuthComponent implements OnInit {
   ngOnInit(): void {
     this.singupForm= new FormGroup({
       "company": new FormControl (""),
-      "companyID": new FormControl (""),
+      "companyId": new FormControl (""),
       'fullName': new FormControl ("",Validators.required),
       'email': new FormControl ("",[Validators.required,Validators.email]),
       'adress': new FormControl ("",Validators.required),
-      'city': new FormControl ("",Validators.required),
       'country': new FormControl ("",Validators.required),
       'phone': new FormControl (0,Validators.required),
       'password': new FormControl ("",Validators.required),
@@ -68,7 +67,8 @@ export class AgentAuthComponent implements OnInit {
                admin: a.admin,
                containers:a.containers,
                agents:a.agents,
-               archive:a.archive
+               archive:a.archive,
+               coll:a.coll
 
 
               
@@ -96,8 +96,8 @@ export class AgentAuthComponent implements OnInit {
 
 sginUp() {
   this.singupForm.value.company=this.userCompany.name
-  this.singupForm.value.companyID=this.givencode+"1"
-  console.log(this.userCompany)
+  this.singupForm.value.companyId=this.givencode+"1"
+  console.log(  this.singupForm)
 
  
   if(this.singupForm.invalid)
