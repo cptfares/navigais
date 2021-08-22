@@ -1,0 +1,21 @@
+<div class="all">
+   
+    <div>
+        <div class="first">Set Up A New Collaboration</div>
+        <form style="display: flex;flex-direction: row;" action="" [formGroup]="form" class="inscription" ngSubmit="addProduct()">
+            
+            <input type="text" class="form-control" formControlName="name"  placeholder="the product name" required>
+            <span *ngIf="form.controls.name.invalid">Enter a valid name</span>
+      
+            <input type="text" class="form-control" formControlName="product"  placeholder="product name" required>
+            <span *ngIf="form.controls.id.invalid">Enter a name</span>
+            <input class="form-control" type="text" formControlName="any"  placeholder="other information" required>
+            <span *ngIf="form.controls.id.invalid">Enter a valid id</span>
+       
+      
+    <div class="button">
+        <input type="submit" class="btn btn-danger" value="Add" (click)="addContainer()" >
+    </div>
+ </form>
+    </div>
+</div>

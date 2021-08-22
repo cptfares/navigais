@@ -31,6 +31,7 @@ import { CollaborationComponent } from './pages/collaboration/collaboration.comp
 import { Ng2SearchPipeModule } from "ng2-search-filter";
 import { Ng2OrderModule } from "ng2-order-pipe";
 import { NgxPaginationModule } from "ngx-pagination";
+import { CollabrationComponent } from './collabration/collabration.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { NgxPaginationModule } from "ngx-pagination";
     LoginComponent,
     SginUpComponent,
     CollaborationComponent,
+    CollabrationComponent,
   
 
   ],

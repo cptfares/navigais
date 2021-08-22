@@ -31,6 +31,7 @@ export class TypographyComponent{
     userid:string
     role:string
     password:string
+    companyId:string
 
     constructor(public firebaseAuth : AngularFireAuth , private afs : AngularFirestore , public userInfos:UserInfoService,  private afAuth : AuthService , public db:AngularFireDatabase ) { }
     ngOnInit() {
@@ -39,12 +40,12 @@ export class TypographyComponent{
             this.fullname=user.fullName
             this.email= user.email
             this.company= user.company
-            this.city=user.city
             this.country=user.country
             this.adress=user.adress
             this.phone=user.phone
             this.role= user.role
             this.password= user.password
+            this.companyId=user.companyId
         })
         this.firebaseAuth.authState.subscribe(user => {
           this.userid=user.uid
@@ -65,7 +66,6 @@ export class TypographyComponent{
           "email": this.email,
           "phone": this.phone,
           "company": this.company,
-          "city": this.city,
           "country": this.country,
           "role": this.role,
           "edit date": Date.now()
@@ -75,11 +75,13 @@ export class TypographyComponent{
           "fullName": this.fullname,
           "email": this.email,
           "phone": this.phone,
+          "adress":this.adress,
           "company": this.company,
-          "city": this.city,
           "country": this.country,
           "role": this.role,
-          "edit date": Date.now()
+          "edit date": Date.now(),
+          "password": this.password,
+          "companyId":this.companyId
 
 
 
