@@ -1,37 +1,50 @@
-<nav class="navbar" >
-    <input type="text" name="name" class="form-control" [(ngModel)]="name" (ngModelChange)="sreach()" placeholder="enter containers name"    >
+<div class="all">
+
+    <div>
+        <div class="first">Set Up A New Collaboration</div>
+        <form style="display: flex;flex-direction: row;" action="" [formGroup]="form" class="inscription" ngSubmit="addProduct()">
+
+            <input type="text" class="form-control" formControlName="name"  placeholder="container" required>
+            <span *ngIf="form.controls.name.invalid">Enter container</span>
+
+            <input type="text" class="form-control" formControlName="product"  placeholder="product name" required>
+            <span *ngIf="form.controls.id.invalid">Enter a name</span>
+            <input class="form-control" type="text" formControlName="any"  placeholder="other information" required>
+            <span *ngIf="form.controls.id.invalid">Enter a valid id</span>
 
 
-</nav>
+    <div class="button">
+        <input type="submit" class="btn btn-danger" value="Add" (click)="addContainer()" >
+    </div>
+ </form>
+    </div>
+    <div class="second">
+        All Colaborations
+    </div>
+    <div class="boxes">
+            <div  class="box">
+
+                <div>company name</div>
+                <div>product</div>
+                <div>description</div>
+                <button class="btn btn-light" (click)="delete(client)">delete company</button>
+            </div>
+            <div class="box">
+
+                    <div>company name</div>
+                    <div>product</div>
+                    <div>description</div>
+                    <button class="btn btn-light" (click)="delete(client)">delete company</button>
+            </div>
+            <div *ngFor="let client of clients; let i=index" class="box">
+
+                <div>company name</div>
+                <div>product</div>
+                <div>description</div>
+                <button class="btn btn-light" (click)="delete(client)">delete company</button>
+        </div>
 
 
-<table class="table" back style="background-color: white;" >
-    <thead>
-      <tr>
-        <th (click)="sort('id')"  scope="col">ID &nbsp; <i class="fa  fa-sort"  ></i> </th>
-        <th (click)="sort('name')" scope="col">name &nbsp; <i class="fa  fa-sort"  ></i> </th>
-        <th (click)="sort('satrt')" scope="col">satrt &nbsp; <i class="fa  fa-sort"  ></i></th>
-        <th (click)="sort('satrt')" scope="col">arrive &nbsp; <i class="fa  fa-sort"  ></i></th>
-        <th (click)="sort('date')" scope="col">date &nbsp; <i class="fa  fa-sort"  ></i></th>
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr  *ngFor='let data of archive | orderBy: key : reverse | paginate:{itemsPerPage:10,currentPage:p} '  >
-        <th scope="row"> {{data.id}}</th>
-        <td>
-          {{data.name}}
-        </td>
-        <td>
-          {{data.start}}
-        </td>
-        <td>
-          {{data.arrive}}
-        </td>
-        <td>
-            {{data.fdate}}
-          </td>
-      </tr>
-    </tbody>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  </table>
+    </div>
+</div>

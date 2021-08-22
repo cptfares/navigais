@@ -32,6 +32,7 @@ export class ContainerService {
   chckedContainer:Container
   letit:boolean
   containerRef1 : AngularFireList<Container>
+  coll
 
 
   constructor(private database : AngularFireDatabase ,private userinfo:UserInfoService, private afs : AngularFirestore) {
@@ -174,6 +175,55 @@ update11(key: string, value:any):Promise<any>{
 test(con:Container){
   this.database.object("/containers/42121").set(this.container)
 }
+setupcoll(Containerid, companyid):any{
+  this.ignore=true
+
+
+  let comp
+  let coll = [Containerid,companyid] 
+ 
+  this.database.object("/companies/"+companyid).valueChanges().subscribe(res=>{
+    comp=res
+    comp.coll.push(coll)
+
+  })
+
+    if(this.ignore){
+      this.database.object("/companies/"+companyid).set(comp)
+      
+
+
+      this.letit=false
+
+}  
+
+
+
+
+
+
+
+
+
+}
+getcoll(){
+  this.userinfo.getUserInfo().subscribe(user=>{
+    this.database .object("companies/"+user.companyId).valueChanges().subscribe((res:Company)=>{
+        this.coll=res.coll
+    })
+    return this.coll
+    
+    
+   
+  })
+
+}
+
+
+
+
+
+
   
  
 }

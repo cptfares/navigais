@@ -12,10 +12,12 @@ import { AddContainerComponent } from 'app/pages/add-container/add-container.com
 import { OverviewComponent } from 'app/pages/overview/overview.component';
 import { SetupContainerComponent } from 'app/pages/setup-container/setup-container.component';
 import { ArchiveComponent } from 'app/pages/archive/archive.component';
+import { CollaborationComponent } from 'app/pages/collaboration/collaboration.component';
 
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'setup_container',      component: AddContainerComponent    },
+    { path: 'collaboration',      component: CollaborationComponent   },
     { path: 'archive',      component: ArchiveComponent   },
     { path: 'overview',      component: OverviewComponent  },
     { path: 'containers',           component: SetupContainerComponent },
