@@ -2,49 +2,99 @@
 
     <div>
         <div class="first">Set Up A New Collaboration</div>
-        <form style="display: flex;flex-direction: row;" action="" [formGroup]="form" class="inscription" ngSubmit="addProduct()">
+        <form style="display: flex;flex-direction: row;"  class="inscription" >
 
-            <input type="text" class="form-control" formControlName="name"  placeholder="container" required>
-            <span *ngIf="form.controls.name.invalid">Enter container</span>
+            <input type="text" class="form-control" name="contianerid"  placeholder="container"  [(ngModel)]="contianerid" >
 
-            <input type="text" class="form-control" formControlName="product"  placeholder="product name" required>
-            <span *ngIf="form.controls.id.invalid">Enter a name</span>
-            <input class="form-control" type="text" formControlName="any"  placeholder="other information" required>
-            <span *ngIf="form.controls.id.invalid">Enter a valid id</span>
+
+            <input type="text" class="form-control"   placeholder="company" [(ngModel)]="companyid" name="companyid">
+
+
 
 
     <div class="button">
-        <input type="submit" class="btn btn-danger" value="Add" (click)="addContainer()" >
+        <input type="submit" class="btn btn-danger" value="Add" (click)="addColl()" >
     </div>
  </form>
     </div>
-    <div class="second">
-        All Colaborations
-    </div>
-    <div class="boxes">
-            <div  class="box">
-
-                <div>company name</div>
-                <div>product</div>
-                <div>description</div>
-                <button class="btn btn-light" (click)="delete(client)">delete company</button>
+    <div style="display: flex;flex-direction: column;">
+        <div class="row" style="  -ms-overflow-style: none!important;scrollbar-width: none!important;">
+          <div class="col-md-12">
+            <div class="card">
+              
+              <div class="card-header" style="display: flex; align-items: center; justify-content:space-between ;" >
+                <h4 class="card-title">   All Colaborations: </h4>
+                <div style="float: right !important  ;" >
+                  <div class="addbtn">
+                    <button type="button" class="btn btn-warning" >+ Add container</button>
+                    </div>
+                </div>
+              </div>
+        
+              <div class="card-body">
+                <div class="table-responsive"  style="     overflow: auto;
+                ">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        ID
+                      </th>
+                      <th>
+                       name
+                      </th>
+                      <th>
+                        start
+                      </th>
+                      <th>
+                        arrive
+                      </th>
+                      <th>
+                        alerts
+                      </th>
+                      <th class="text-right">
+                        statut
+                      </th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor='let data of dataRows; let i=index;' (click)="openDialog(data)" >
+                        <td>
+                            {{data.id}}
+                        </td>
+                        <td>
+                          {{data.name}}
+                        </td>
+                        <td>
+                          {{data.start}}
+                        </td>
+                        <td>
+                          {{data.arrive}}
+                        </td>
+                        <td   >
+                          <i style="font-size:35px ;color:red; " class="fas fa-exclamation-triangle"></i>
+                        </td>
+                        <td class="text-right">
+                          <div *ngIf="data.active  else offline">
+                            <button class="btn btn-success">active</button>
+                          </div>
+                          
+                          <ng-template #offline>
+                         <button class="btn btn-alert">offline</button>
+                          </ng-template>
+                        </td>   
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
-            <div class="box">
-
-                    <div>company name</div>
-                    <div>product</div>
-                    <div>description</div>
-                    <button class="btn btn-light" (click)="delete(client)">delete company</button>
-            </div>
-            <div *ngFor="let client of clients; let i=index" class="box">
-
-                <div>company name</div>
-                <div>product</div>
-                <div>description</div>
-                <button class="btn btn-light" (click)="delete(client)">delete company</button>
+          </div>
+        
+        <div *ngIf="pop==true" class="popup">
+          <div>container details</div>
+        
+        
+        </div>
+        
         </div>
 
-
-
-    </div>
 </div>

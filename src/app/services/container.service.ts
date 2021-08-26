@@ -33,10 +33,14 @@ export class ContainerService {
   letit:boolean
   containerRef1 : AngularFireList<Container>
   coll
+  comp
+  listofcolls
+  listofcoll:Array<Observable<Container>>
 
 
   constructor(private database : AngularFireDatabase ,private userinfo:UserInfoService, private afs : AngularFirestore) {
     this.containerRef=[]
+
    }
    setUp(Container2:Container):any{
       this.letit=false
@@ -80,12 +84,21 @@ export class ContainerService {
 
 
  update(data:Company,_id){       
-  this.afs.collection('companies').doc(_id).set(data,{merge:true})
   this.database.object('companies/'+_id).set(data)
 
   
 
 }
+update111(data,_id){       
+  this.database.object('companies/'+_id).set(data)
+
+  
+
+}
+
+
+
+
 getagents():Array<Observable<Container>>{
   this.listofcontainers=[]
   let user =this.userinfo.getUserInfo().subscribe(user=>{
@@ -126,6 +139,12 @@ getagents():Array<Observable<Container>>{
     return ( this.listofcontainers)
 
    }
+   private getagentslist1(agent){
+    this.  listofcoll.push(agent)
+    console.log( this.listofcontainers)
+    return ( this.listofcontainers)
+
+   }
 
 
 
@@ -133,16 +152,7 @@ getagents():Array<Observable<Container>>{
 
     this.detail.next(newValue)
    }
- gecontainers() {
-  this.userinfo.getUserInfo().subscribe(user=>{
-      this.database .object("companies/"+user.companyId).valueChanges().subscribe((res:Company)=>{
-          this.containerslist(res.containers)
-      })
-      
-      
-     
-    })
-   }
+
 
 containerslist(data){
   this.listofcontainers=data
@@ -175,27 +185,39 @@ update11(key: string, value:any):Promise<any>{
 test(con:Container){
   this.database.object("/containers/42121").set(this.container)
 }
+
+
+
+
 setupcoll(Containerid, companyid):any{
+
   this.ignore=true
+   
 
-
-  let comp
-  let coll = [Containerid,companyid] 
  
   this.database.object("/companies/"+companyid).valueChanges().subscribe(res=>{
-    comp=res
-    comp.coll.push(coll)
+    console.log(res)
+    this. comp=res
+    console.log(this.comp)
+    this. comp.coll.push(Containerid)
 
   })
 
-    if(this.ignore){
-      this.database.object("/companies/"+companyid).set(comp)
-      
+this.userinfo.getUserInfo().subscribe((user)=>{
+ this.database.object("companies/"+user.companyId).valueChanges().subscribe((res:Company)=>{
+      console.log(this.ignore)
+  if(this.ignore){
+    this.ignore=false
+    this.database.object("/companies/"+companyid).set( this.comp)
+  this.company1=res
+  this.company1.coll.push(Containerid)
+  this.update111(this.company1,user.companyId)
 
 
-      this.letit=false
 
 }  
+})
+})
 
 
 
@@ -206,16 +228,34 @@ setupcoll(Containerid, companyid):any{
 
 
 }
-getcoll(){
-  this.userinfo.getUserInfo().subscribe(user=>{
-    this.database .object("companies/"+user.companyId).valueChanges().subscribe((res:Company)=>{
-        this.coll=res.coll
+getcoll():Array<Observable<Container>>{
+  this.listofcolls=[]
+  let user =this.userinfo.getUserInfo().subscribe(user=>{
+      this.database.object("companies/"+user.companyId).valueChanges().subscribe((res:Company)=>{
+        this.listofcolls.map( () =>        this.listofcolls.pop())    
+
+       this.listofcolls=res.coll
+        console.log(  this.listofcolls)
+        this.listofcolls.splice(0,1)
+        this.listofcolls.splice(0,1)
+
+        this.listofcolls.forEach(element => {
+          this.database.object("/containers/"+element).valueChanges().subscribe((res:Container)=>{
+            this.listofcoll.map( () =>      this.listofcoll.pop())    
+
+            console.log(res)
+            let agent= res
+            this.getagentslist1(agent)
+            console.log(  this.listofcoll)
+          })         
+        });
+      })    
     })
-    return this.coll
-    
-    
-   
-  })
+    console.log(  this.listofcontainers)
+    return ( this.listofcontainers)
+  
+
+
 
 }
 
