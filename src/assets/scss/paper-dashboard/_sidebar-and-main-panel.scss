@@ -18,7 +18,7 @@
     width: 260px;
     left: 0;
     z-index: 1030;
-    border-right: 1px solid #ddd;
+    background: #f4f3ef;
 
     .sidebar-wrapper{
         position: relative;
@@ -240,6 +240,10 @@
     &:after{
         @include icon-gradient($default-color);
         z-index: 3;
+        border-top-right-radius:40px;
+        border-bottom-right-radius:40px;
+        background-image: linear-gradient( 179.1deg,  rgba(9,0,95,1) 1.8%, rgba(136,170,244,1) 180.8% );
+        
     }
 
     &[data-color="white"]{

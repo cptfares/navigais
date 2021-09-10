@@ -7,6 +7,7 @@ import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { ClipboardService } from 'ngx-clipboard';
 
 
 
@@ -33,8 +34,9 @@ export class TypographyComponent{
     password:string
     companyId:string
 
-    constructor(public firebaseAuth : AngularFireAuth , private afs : AngularFirestore , public userInfos:UserInfoService,  private afAuth : AuthService , public db:AngularFireDatabase ) { }
+    constructor(public firebaseAuth : AngularFireAuth , private afs : AngularFirestore , public userInfos:UserInfoService,  private afAuth : AuthService , public db:AngularFireDatabase, private clipboardApi: ClipboardService ) { }
     ngOnInit() {
+      this.userid="http://localhost:4200/#/agent-auth/"
 
         this.userInfos.getUserInfo().subscribe(user=>{
             this.fullname=user.fullName
@@ -48,7 +50,7 @@ export class TypographyComponent{
             this.companyId=user.companyId
         })
         this.firebaseAuth.authState.subscribe(user => {
-          this.userid=user.uid
+          this.userid= this.userid+user.uid
         
     
         }) 
@@ -93,6 +95,9 @@ export class TypographyComponent{
       }
       cancel(){
         this.onclick= false
+      }
+      copyText() {
+        this.clipboardApi.copyFromContent(this.userid)
       }
 
 }

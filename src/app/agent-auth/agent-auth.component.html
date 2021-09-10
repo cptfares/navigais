@@ -1,73 +1,84 @@
-<div class="container">
 
-    
-<div  class="signup-login" >   
-            <div *ngIf=" show" >  
-
-                   <form action="" [formGroup]="singupForm" class="signup" ngSubmit="signUp()"  >
-                   
-                   <h2 class="title">Sign up</h2>
-                   <h1>company <span style=" color:aqua">{{(userCompany)?.name}}</span> is inviting you </h1>
-
-                           <div class="input-field">
-                           <i class="name"></i>
-                           <input type="text"  formControlName="fullName" placeholder="Entre the username" >
-                           </div>
-                           <div class="input-field">
-                           <i class="mail"></i>
-                           <input type="email"  placeholder="Enter your Email"  formControlName="email" >
-                           </div>
-
-                           <div class="input-field">
-                               <i class="adress"></i>
-                               <input type="text" formControlName="adress" placeholder="Entre your adress" >
+<body>
+    <div class="design">
+    <div class="circle"></div>
+    <div class="semi"></div>
+    <div class="astro"></div>
+    <div class="star1"></div>
+    <div class="star"></div>
+    <div class="star2"></div>
+    </div>
+ 
+<div class="container" style="margin: 0;">
+    <div  class="signup-login" >   
+                <div class="come" *ngIf="show" >  
+                       
+                       
+                     
+                       <form action="" [formGroup]="singupForm" class="signup" ngSubmit="signUp()"  > 
+                        <div class="title">Sign up</div>
+                       <div class="company">Company <span style=" color:#09005F ; text-transform: uppercase;font-weight: 680;">{{(userCompany)?.name}}</span> is inviting you </div>
+                              <div class="input-field">
+                               <input type="text"  formControlName="fullName" >
+                               <span></span> 
+                               
+                               <label >Username</label>
                                </div>
                                <div class="input-field">
-                                       <i class="city"></i>
-                                       <input type="text" formControlName="city"  placeholder="Entre tyour current city" >
-                                       </div>
-                           <div class="input-field">
-                           <i class="country"></i>
-                           <input type="text" formControlName="country" placeholder="Entre your country " >
-                           </div>
-                           <div class="input-field">
-                               <i class="phone"></i>
-                               <input type="number" formControlName="phone" placeholder="Entre your phone number " >
+                               
+                               <input type="email"    formControlName="email" >
+                               <span></span>
+                               
+                               <label >Email</label>
                                </div>
-                           <div class="input-field">
-                           <i class="lock"></i>
-                           <input type="password" placeholder="Create a password " formControlName="password"  >
-                           </div>
-                           <div>
-                           <input type="submit" (click)="sginUp()" value="sign up" class="btn">
-                           </div> 
-                           
-                   </form>
+    
+                               <div class="input-field">
+                                   
+                                   <input type="text" formControlName="adress"  >
+                                   <span></span>
+                                   <label >Adress</label>
+                                   </div>
 
-           </div>   
-           <div style="margin-left: 8rem ; " class="code" *ngIf="! show">
-            <h3>enter your invitation code de sgin up </h3>
-            <div style="margin: 0 !important;" class="input-field">
-                <i class="name"></i>
-                <input type="text"  [(ngModel)]="givencode" placeholder="Entre the username" >
+                               <div class="input-field">
+                               
+                               <input type="text" formControlName="country"  >
+                               <span></span>
+                               <label >Country</label>
+                               </div>
+                               <div class="input-field">
+                                   
+                                   <input type="number" formControlName="phone"  >
+                                   <span></span>
+                                   <label >Phone</label>
+                                   </div>
+                               <div class="input-field">
+                               
+                               <input type="password"  formControlName="password"  >
+                               <span></span>
+                               <label >Password</label>
+                               </div>
+                               
+                         
+                        
+                               <input type="submit" (click)="sginUp()" value="sign up" class="botton">
+                               
+                               
+                       </form>
+                   
+               </div>  
+               <div class="come">
+               <div class="code" *ngIf="! show">
+                   <div class="erroret">
+                       <img  src="../assets/error.gif" alt="">
+                   </div>
+               
+                    <div class="entri">Link not available</div>
+                    
+
                 </div>
-                <span style="color:  red;" >your code is wrong</span>
-
-                <div>
-                    <input type="submit" (click)="checkCode()" value="next" class="btn">
-                    </div> 
-
-           </div>             
-
-
-</div>
-
-
-
-
-
-
-
-</div>
-
-
+ 
+                </div>           
+    </div>
+</div> 
+</body>
+    

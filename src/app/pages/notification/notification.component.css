@@ -1,0 +1,65 @@
+.alot{
+    background:linear-gradient(180deg, #09005F 30%, #f4f3ef 30%);
+   
+    width: 400px;
+    max-height: 750px;
+    
+    border-radius: 50px;
+    
+    overflow-x: scroll;
+    
+}
+.alot::-webkit-scrollbar {
+        display: none;}
+.trara{
+    
+    position: relative;
+    background: none;
+    margin: 80px 15px 15px;
+    padding: 5px;
+    display: inline-block;
+}
+.busan{
+    background: none;
+    border-radius: 20px;
+    display: inline-block;
+    position: relative;
+}
+.seoul{
+    background: white;
+    justify-content: center;
+    position: relative;
+    align-items: center; display: 
+    inline-block;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 6px 10px -4px rgb(0 0 0 / 15%);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+.safra2{
+    display: flex;
+    position: relative;
+    background:none;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 6px 10px -4px rgb(0 0 0 / 15%);
+
+}
+.safra2 img{
+   flex: 1; left: 0;
+    margin: 10px;
+    margin-right: 20px;
+    
+}
+.safra2 h1{
+   margin-right: 20px;
+   font-size: 22px;
+   color: #09005F;
+}
+.seoul p{
+ margin: 20px;
+ position: relative;
+ 
+}

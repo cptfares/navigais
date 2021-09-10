@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Container } from 'app/services/container';
 import { ContainerService } from 'app/services/container.service';
 import { UserInfoService } from 'app/services/user-info.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-container',
@@ -36,7 +37,7 @@ export class AddContainerComponent implements OnInit {
 
 
 
-  constructor(private containerService: ContainerService , private fauth: AngularFireAuth, public cont:UserInfoService ) { }
+  constructor(private toostr: ToastrService ,private containerService: ContainerService , private fauth: AngularFireAuth, public cont:UserInfoService ) { }
 
   ngOnInit(): void {
     let data=new Date()
@@ -66,25 +67,26 @@ export class AddContainerComponent implements OnInit {
         active:this.tempurature,
         min:this.tempuratureMin,
         max:this.tempuratureMax,
-        cureent:null
+        cureent:1
       },
       humidity: {
         active:this.humidity,
         min:this.humidityMin,
         max:this.humidityMax,
-        cureent:null
+        cureent:1
       },
       pressure: {
         active:this.pressure,
         min:this.pressureMin,
         max:this.pressureMax,
-        cureent:null
+        cureent:1
       },
       tracking: this.tracking,
       infared:  this.infared,
       touch: null,
       flame:this.flame,
       description: this.description,
+      alert:false
 
 
     }

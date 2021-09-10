@@ -10,15 +10,22 @@
     <div class="star"></div>
     <div class="star2"></div>
     <div class="qw">
-      <h3>Welcome Among Us !</h3> 
+      Welcome Among Us !
     </div>
     <div class="qw0">
-      <h4>We are happy to have here in.</h4>
-      <h5>Thanks for choosing Navigias </h5>
+      <div class="qw01">
+         We are happy to have here in.
+      </div>
+     
+      <div class="qw02">
+        Thanks for choosing Navigias
+      </div>  
     </div>
       
     <div class="center">
-      <h1>Join Us</h1>
+      <div class="joinina">
+        Join Us
+      </div> 
     <form method="post" [formGroup]="singupForm"  ngSubmit="signUp()"  >
       <div class="int">
         <input formControlName="fullName" type="text" class="fi1" required>
@@ -59,6 +66,10 @@
       <!--<div class="for">Forgot Password?</div>-->
       <input type="submit"  (click)="sginUp()"  value="sign up">
       <div style="cursor: pointer;"  class="come">
+        <div class="comi">
+        signup to join your company! <a (click)="signup()">sign up</a>
+        </div>
+        
         log in instead ? <a (click)="sginup()">log in</a>
       </div>
     </form>

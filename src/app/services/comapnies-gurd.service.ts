@@ -5,6 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'jquery';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { ArchiveService } from './archive.service';
 import { Company } from './company';
 import { User } from './user';
 import { UserInfoService } from './user-info.service';
@@ -20,7 +21,7 @@ export class ComapniesGurdService {
   agentList
 
 
-  constructor(private db: AngularFireDatabase ,private userinfo:UserInfoService, private afs: AngularFirestore , private ath: AngularFireAuth ) {
+  constructor( private db: AngularFireDatabase ,private userinfo:UserInfoService, private afs: AngularFirestore , private ath: AngularFireAuth ) {
     this.companyRef= this.db.list(this.path)
     this.agentList=[]
 
@@ -50,11 +51,9 @@ export class ComapniesGurdService {
     this.agentList=[]
     this.listofagents=[]
     this.listofagents.map( () =>    this.listofagents.pop())    
-    console.log(this.listofagents)
-if(this.listofagents.length === 0){
-  this.listofagents.map( () =>    this.listofagents.pop())    
-
         let user =this.userinfo.getUserInfo().subscribe(user=>{
+          this.listofagents.map( () =>    this.listofagents.pop())    
+
         this.db.object("companies/"+user.companyId).valueChanges().subscribe((res:Company)=>{
           this.listofagents.map( () =>    this.listofagents.pop())    
 
@@ -62,10 +61,12 @@ if(this.listofagents.length === 0){
           console.log(this.agentList)
           this.agentList.shift()
           this.agentList.shift()
+          this.listofagents.map( () =>    this.listofagents.pop())    
+
           
           this.agentList.forEach(element => {
             this.db.object("users/"+element).valueChanges().subscribe((res:User)=>{
-              this.listofagents.map( () =>    this.listofagents.pop())    
+ 
 
               let agent= res
               this.getagentslist(agent)
@@ -80,9 +81,7 @@ if(this.listofagents.length === 0){
        
       })
 
-}else{
-  return
-}    
+    
 
 
 
@@ -94,6 +93,30 @@ if(this.listofagents.length === 0){
 
     
     }
+
+    getagents1():Array<Observable<object>>{
+      this.agentList=[]
+      this.listofagents=[]
+      this.listofagents.map( () =>    this.listofagents.pop())    
+          let user =this.userinfo.getUserInfo().subscribe(user=>{
+            this.listofagents.map( () =>    this.listofagents.pop())    
+  
+          this.db.object("companies/"+user.companyId).valueChanges().subscribe((res:Company)=>{
+            this.listofagents.map( () =>    this.listofagents.pop())    
+  
+            this.agentList=res.notifications
+            console.log(this.agentList)
+            this.agentList.shift()
+            this.agentList.shift()
+            this.listofagents.map( () =>    this.listofagents.pop())   
+          })
+          
+          
+         
+        })
+        return ( this.agentList)
+      
+      }
 
 
 

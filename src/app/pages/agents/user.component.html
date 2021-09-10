@@ -17,7 +17,7 @@
                 {{agent.fullName}}
                 <br />
                 <span >
-                  <small>Offline</small>
+                  <small>{{agent.status}}</small>
                 </span>
               </div>
             </div>
@@ -30,74 +30,56 @@
   </div>
   <div class="col-md-4" *ngIf="carte===true">
       <div class="card card-user">
-    <div class="image">
+    <div class="image" style="background-color: #09005F;"> 
 
     </div>
    
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <div class="card-body">
+    
+     
+        
+          <div class="card-body-se" >
             <div class="author">
-               <a href="#">
-                 <img class="avatar border-gray" src="assets/img/faces/ayo-ogunseinde-2.jpg" alt="...">
-                 <h5 class="title">{{info.fullName}}</h5>
+               <a href="#" >
+                 <img class="avatar" style="border-radius: 50%, 0% , 50%, 0%" src="assets/boy.svg" alt="...">
+                
                </a>
+               <h5 class="title" style="color: #09005F; font-weight: 500;letter-spacing: 2px;"> {{info.fullName}}</h5>
                <div style="display: flex; flex-direction: row; justify-content:space-around;"  class="informations">
                  <div class="circle" >
-                   <b style="color: darkgoldenrod;">experience</b>
-                   <div>5 years</div>
+                   <b style="color: #88aaf4;">Availability</b>
+                   <div >{{info.status}}</div>
                  </div>
                 
-                  <div class="circle" >
-                    <b style="color: darkgoldenrod;">stars</b>
-                    <div>5 </div>
-                  </div>      
-                    <div class="circle" >
-                      <b style="color: darkgoldenrod;">achievement</b>
-                      <div>7</div>
-                    </div> 
+ 
+
                   
                </div>
              </div>
-             <hr>
-             <div class="button-container">
-               <div class="row" style="justify-content: left; text-align: left;">
-                 <div class="col">
-                   <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; " >
-                     <p style="margin-left: 20px; margin-bottom: 0 !important; font-size: 1.2rem; ">Statut:</p>
-                     <span  style=" color: #6bd098 ;">
-                           Available
-                     </span>
-                   </div>
-       
-                 </div>
-                 <div class="col">
-                   <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; " >
-                     <p style="margin-left: 20px; margin-bottom: 0 !important; font-size: 1.2rem; ">Location:</p>
-                     <span >
-                      {{info.adress}}
-                     </span>
-                   </div>
-       
-                 </div>
-                 <div class="col">
-                  <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; " >
-                    <p style="margin-left: 20px; margin-bottom: 0 !important; font-size: 1.2rem; ">phone number:</p>
-                    <span >
-                      {{info.phone}}
-                    </span>
-                  </div>
-      
-                </div>
-       
+             <div class="new" style="display: flex;flex-direction: row;display: flex;justify-content: center; position: relative;">
+               <div class="idc">
+                 <b  style="color: #88aaf4;">satus</b>
+                 <div style="color: rgb(165, 163, 163);">{{info.status}}</div>
+
                </div>
+               <div class="idc">
+                <b  style="color: #88aaf4;">phone</b>
+                <div style="color: rgb(165, 163, 163);">{{info.phone}}</div>
+
+               </div>
+               <div class="idc">
+                <b style="color: #88aaf4;">Country </b>
+                <div style="color: rgb(165, 163, 163); flex-wrap: wrap;position: relative;">{{info.country}}</div>
+
+               </div>
+
              </div>
+              
+             
            </div>
-        </div>
+        
        
-      </div>
-    </div>
+      
+    
   </div>
   </div>
  

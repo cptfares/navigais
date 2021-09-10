@@ -6,7 +6,7 @@ import { ComapniesGurdService } from 'app/services/comapnies-gurd.service';
     selector: 'user-cmp',
     moduleId: module.id,
     templateUrl: 'user.component.html',
-    styleUrls: ['user.component.css']
+    styleUrls: ['user.component.scss']
 
 })
 

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { Company } from './company';
 import { UserInfoService } from './user-info.service';
 
@@ -9,10 +11,11 @@ import { UserInfoService } from './user-info.service';
 })
 export class ArchiveService {
   vergin=true
+  notificationlist:Observable<any>
 
   archive
 
-  constructor(public db:AngularFireDatabase,private userinfo:UserInfoService) { 
+  constructor(private toostr: ToastrService ,public db:AngularFireDatabase,private userinfo:UserInfoService) { 
   }
   
   setarchive(archive){
@@ -72,6 +75,74 @@ export class ArchiveService {
 
 
   }
+
+  notifications(noti,last){
+    console.log(noti)
+    console.log(last)
+
+    console.log((noti.id===last.id))
+
+
+
+    let user =this.userinfo.getUserInfo().pipe(take(1)).subscribe(res=>{
+      console.log(res)
+        this.db.object("companies/"+res.companyId).valueChanges().pipe(take(1)).subscribe((comp:Company)=>{
+          if(this.vergin){
+            this.vergin=false
+
+          console.log(comp)
+          
+          let company=comp
+
+          console.log(noti)
+              if (noti.id===last.id){
+                    this.vergin=true
+
+                return
+            
+
+              }else{
+                this.toostr.show(
+                  '<span data-notify="icon" class="nc-icon nc-bell-55"></span><span data-notify="message"> alert </br> {{noti.headline}} <a> learn more</a></span>',
+                    "",
+                    {
+                      timeOut: 4000,
+                      closeButton: true,
+                      enableHtml: true,
+                      toastClass: "alert alert-danger alert-with-icon",
+                      positionClass: "toast-bottom-right"
+                    }
+                  );
+                company.notifications.push(noti)
+                this.db.object("companies/"+res.companyId).set(company)
+              }
+
+
+
+
+          
+
+
+          }
+
+
+
+          
+        })
+      
+
+
+
+    })
+    this.vergin=true
+
+  }
+  getnoti(){
+
+
+  }
+
+
   
   }
   

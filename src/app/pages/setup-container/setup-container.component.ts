@@ -67,6 +67,7 @@ export class SetupContainerComponent implements OnInit {
  onclick(){
     console.log(this.container)
     this.container11={
+      alert:false,
       adate: this.container.adate ,
       fdate:new Date().getTime(),
       name :   this.Name ,
@@ -79,23 +80,23 @@ export class SetupContainerComponent implements OnInit {
         active:this.tempurature,
         min:this.tempuratureMin,
         max:this.tempuratureMax,
-        cureent:null
+        cureent:1
       },
       humidity: {
         active:this.humidity,
         min:this.humidityMin,
         max:this.humidityMax,
-        cureent:null
+        cureent:1
       },
       pressure: {
         active:this.pressure,
         min:this.pressureMin,
         max:this.pressureMax,
-        cureent:null
+        cureent:1
       },
       tracking: this.tracking,
       infared:  this.infared,
-      touch: null,
+      touch: false,
       flame:this.flame,
       description: this.description
 

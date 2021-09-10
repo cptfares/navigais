@@ -2,18 +2,14 @@
 
     <div>
         <div class="first">Set Up A New Collaboration</div>
-        <form style="display: flex;flex-direction: row;"  class="inscription" >
+        <form style="display: flex;flex-direction: row;margin: 20px;margin-bottom: 50px;"  class="inscription" >
 
-            <input type="text" class="form-control" name="contianerid"  placeholder="container"  [(ngModel)]="contianerid" >
-
-
-            <input type="text" class="form-control"   placeholder="company" [(ngModel)]="companyid" name="companyid">
+            <input type="text" style="margin-right:10px;border-radius: 15px;border: none;box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%)" class="form-control" name="contianerid"  placeholder="container"  [(ngModel)]="contianerid" >
 
 
-
-
-    <div class="button">
-        <input type="submit" class="btn btn-danger" value="Add" (click)="addColl()" >
+            <input type="text" style="margin-left: 8px;border-radius: 15px;border: none;box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%)" class="form-control"   placeholder="company" [(ngModel)]="companyid" name="companyid">
+    <div class="button" style="margin-left: 30px;">
+        <input type="submit" class="btn btn-danger"style="width:130px;" value="Add" (click)="addColl()" >
     </div>
  </form>
     </div>
@@ -25,9 +21,6 @@
               <div class="card-header" style="display: flex; align-items: center; justify-content:space-between ;" >
                 <h4 class="card-title">   All Colaborations: </h4>
                 <div style="float: right !important  ;" >
-                  <div class="addbtn">
-                    <button type="button" class="btn btn-warning" >+ Add container</button>
-                    </div>
                 </div>
               </div>
         

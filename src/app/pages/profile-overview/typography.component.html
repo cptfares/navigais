@@ -4,7 +4,11 @@
     <div class="col-md-4 px-1">
       <div class="form-group">
         <label>invitation code</label>
-        <input type="text"  disabled="true" class="form-control"  [(ngModel)]="  userid" name="  userid"   >
+        <div style="display:flex ; justify-content: space-between;" >
+        <input type="text" style="margin-right: 10px;"  disabled="true" class="form-control"  [(ngModel)]="  userid" name="  userid"   >
+        <i class="far fa-copy" style="margin-right: 10px; color : #9A9A9A; "  (click)="copyText()" style="font-size: 35px;"></i>
+        </div>
+
       </div>
     </div>
   </div>

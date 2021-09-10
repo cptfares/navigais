@@ -8,8 +8,7 @@ import { AgentAuthService } from 'app/services/agent-auth.service';
 import { AuthService } from 'app/services/auth.service';
 import { ComapniesGurdService } from 'app/services/comapnies-gurd.service';
 import { Company } from 'app/services/company';
-import { map } from 'rxjs/operators';
-
+import { ActivatedRoute } from '@angular/router'
 @Component({
   selector: 'app-agent-auth',
   templateUrl: './agent-auth.component.html',
@@ -31,7 +30,7 @@ export class AgentAuthComponent implements OnInit {
   
 
 
-  constructor( public dialog : MatDialog, public db:AngularFireDatabase   ,public firebase:AngularFirestore, public at : AgentAuthService, public agentAuth:AgentAuthService, private companyGrud:ComapniesGurdService,   private fireservice : AuthService, private route : Router) { }
+  constructor( public dialog : MatDialog, public db:AngularFireDatabase   ,public firebase:AngularFirestore, public at : AgentAuthService, public agentAuth:AgentAuthService, private companyGrud:ComapniesGurdService,   private fireservice : AuthService, private route : Router, private route1:ActivatedRoute ) { }
 
   ngOnInit(): void {
     this.singupForm= new FormGroup({
@@ -47,48 +46,36 @@ export class AgentAuthComponent implements OnInit {
       "status":new FormControl ("offline")
 
     })
-    // const dia=this.dialog.open(AuthDialogComponent, {
-    //    disableClose: true,
-    //    data: { givenCode: this.givencode }
-      
-    //   });
-    // dia.afterClosed().subscribe(res=>{
-    //   console.log (res)
-    // })
+    this. givencode = this.route1.snapshot.paramMap.get('code');
+    console.log(this.givencode)
+    this.db.list('companies').valueChanges().subscribe((res)=>
+    res.forEach((a:Company)=>{
+          if ( this.givencode==a.admin){
+           this.show= true
+           this.userCompany={
+             name:a.name,
+             admin: a.admin,
+             containers:a.containers,
+             agents:a.agents,
+             archive:a.archive,
+             coll:a.coll,
+             notifications:a.notifications
+
+
+            
+           }
+           
+       
+      }
+    })
+
+    
+ 
+  
+
+  )
   }
 
- async checkCode() {
-    this.db.list('companies').valueChanges().subscribe((res)=>
-      res.forEach((a:Company)=>{
-            if ( this.givencode==a.admin){
-             this.show= true
-             this.userCompany={
-               name:a.name,
-               admin: a.admin,
-               containers:a.containers,
-               agents:a.agents,
-               archive:a.archive,
-               coll:a.coll
-
-
-              
-             }
-             
-         
-        }
-      })
-
-      
-   
-    
-  
-    )
-
-
-
-
-
-}
 
 
 

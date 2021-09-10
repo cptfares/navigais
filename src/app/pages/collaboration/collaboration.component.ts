@@ -20,12 +20,16 @@ export class CollaborationComponent implements OnInit {
   companyid
   public dataRows :Array<Observable<Container>>
 
-  constructor(public container:ContainerService, public archive1:ArchiveService, public userinfo:UserInfoService, public db:AngularFireDatabase ) { }
+  constructor(public container:ContainerService, public archive1:ArchiveService, public userinfo:UserInfoService, public db:AngularFireDatabase ) {
+    this.dataRows=[]
+   }
 
 
 
   ngOnInit(): void {
     this.dataRows=this.container.getcoll()
+
+    console.log(this.dataRows)
 
 
 

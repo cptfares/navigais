@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ArchiveService } from 'app/services/archive.service';
 import { Company } from 'app/services/company';
 import { Container } from 'app/services/container';
 import { ContainerService } from 'app/services/container.service';
+import { Observable } from 'rxjs';
 declare var google: any;
 
 
@@ -14,13 +17,13 @@ declare var google: any;
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
-information:Container;
+information:Container
 sensors =["temp", "hum","touch", "infrared","flame", "laser"]
-  constructor( public archive:ArchiveService,  private dialogRef: MatDialog,private detailed: ContainerService , public route: Router ) { }
+  constructor( public archive:ArchiveService,  private dialogRef: MatDialog,private detailed: ContainerService , public route: Router, private database : AngularFireDatabase) { }
 
   ngOnInit(): void {
 
-      this.information=this.detailed.chckedContainer
+       this.getcontainr()
       var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
       var mapOptions = {
         zoom: 13,
@@ -46,9 +49,15 @@ sensors =["temp", "hum","touch", "infrared","flame", "laser"]
     this.archive.setarchive(this.information)
 
   }
+  getcontainr(){
+    this.database.object("containers/"+this.detailed.chckedContainer.id).valueChanges().subscribe((res:Container)=>{
+      this.information=  res
+    })
+
+  }
   change(){
     this.detailed.changeDetail(this.information)
-    this.route.navigate(['dashboard/containers'])
+    this.route.navigate(['dashboard/setup_container'])
     
 
   }

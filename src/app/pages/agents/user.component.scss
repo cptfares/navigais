@@ -1,0 +1,58 @@
+.card-user{
+    .image{
+        height: 170px;
+
+      img {
+        border-radius: 12px;
+      }
+    }
+
+    .author{
+        text-align: center;
+        text-transform: none;
+        margin-top: -77px;
+
+        a +  p.description{
+            margin-top: -7px;
+        }
+    }
+
+    .avatar{
+        width: 124px;
+        height: 124px;
+        position: relative;
+    }
+
+    .card-body{
+        min-height: 240px;
+    }
+    .card-body-se{
+      min-height: 240px;
+      background-color: #ffffff;
+  }
+
+
+    hr{
+        margin: 5px 15px 15px;
+    }
+
+    .card-body + .card-footer {
+      padding-top: 0;
+    }
+    .card-body-se + .card-footer {
+      padding-top: 0;
+      background-color: #ffffff;
+    }
+
+    .card-footer {
+      h5 {
+        font-size: 1.25em;
+        margin-bottom: 0;
+      }
+    }
+
+    .button-container{
+        margin-bottom: 6px;
+        text-align: center;
+    }
+}

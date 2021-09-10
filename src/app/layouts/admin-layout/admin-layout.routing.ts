@@ -7,6 +7,8 @@ import { TypographyComponent } from '../../pages/profile-overview/typography.com
 import { IconsComponent } from '../../pages/icons/icons.component';
 import { MapsComponent } from '../../pages/maps/maps.component';
 import { NotificationsComponent } from '../../pages/notifications/notifications.component';
+import { NotificationComponent } from '../../pages/notification/notification.component';
+
 import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { AddContainerComponent } from 'app/pages/add-container/add-container.component';
 import { OverviewComponent } from 'app/pages/overview/overview.component';
@@ -16,17 +18,17 @@ import { CollaborationComponent } from 'app/pages/collaboration/collaboration.co
 
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'setup_container',      component: AddContainerComponent    },
+    { path: 'setup_container',      component: SetupContainerComponent    },
     { path: 'collaboration',      component: CollaborationComponent   },
     { path: 'archive',      component: ArchiveComponent   },
     { path: 'overview',      component: OverviewComponent  },
-    { path: 'containers',           component: SetupContainerComponent },
-    { path: 'tables',          component: TableComponent },
+    { path: 'add_container',           component: AddContainerComponent },
+    { path: 'containers',          component: TableComponent },
     { path: 'agents',          component: UserComponent},
     { path: 'profil',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
+    { path: 'notifications',  component: NotificationComponent },
     { path: 'upgrade',        component: UpgradeComponent },
 
 ];

@@ -15,8 +15,10 @@ body{
    top:39.5%;
    left: 3.75%;
    margin-bottom: 0;
-   font-size: 24px;
+   font-size: 30px;
+   font-weight: 820;
 }
+
 .design{
    position: absolute;
    top: 44%;
@@ -41,8 +43,8 @@ body{
        height: 250px; /* as the half of the width */
        background-color: none;
        
-       top: 35%;
-           left: 77%;
+       top: 37.5%;
+           left: 80%;
            right: 0;
        transform: rotate(-90deg);
        border-top-left-radius: 260px;  /* 100px of height + 10px of border */
@@ -97,25 +99,28 @@ body{
    border-radius: 50%;
    display: inline-block;
 }
-.qw0 h4{
+
+.qw01{
    position: absolute;
    color: rgb(175, 175, 175);
-   top:44%;
-   left: 4.5%;
+   top:42%;
+   left: 5.2%;
    margin-top:35px;
    font-size: 18px;
+   font-weight: 800;
 }
-.qw0 h5{
+.qw02{
    position: absolute;
    color: rgba(175, 175, 175, 0.733);
-   top:44%;
-   left: 5.25%;
+   top:43%;
+   left: 6.1%;
    margin-top: 65px;
    font-size: 16px;
+   font-weight: 700;
 }
 .center{
    position:absolute;
-   top: 50%;
+   top: 48.5%;
    left: 50%;
    transform: translate(-50%,-50%);
    width: 600px;
@@ -124,12 +129,18 @@ body{
    box-shadow: 0px 0px 16px 9px rgba(0, 0, 0, 0.19);
    background: white;
    border-radius: 20px;
-   height: 700px;
+   height: 710px;
 }
-.center h1{
+.comi{
+   margin-bottom: 5px;
+}
+.joinina{
    text-align:center;
    padding: 0 0 0 0;
    color: #11183F;
+   font-size: 28px;
+   font-weight: 750;
+   margin-top: 15px;
 }
 .center form{
    padding: 0 40px;

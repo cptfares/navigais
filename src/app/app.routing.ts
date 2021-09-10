@@ -11,9 +11,10 @@ import { LoginComponent } from './login/login.component';
 import { SginUpComponent } from './sgin-up/sgin-up.component';
 
 export const AppRoutes: Routes = [
+  {path:"agent-auth/:code", component: AgentAuthComponent},
   {path:'sgin-up', component: SginUpComponent },
   {path:'login', component: LoginComponent },
-  {path:"agent-auth", component: AgentAuthComponent},
+
 
 
   {
@@ -32,7 +33,7 @@ export const AppRoutes: Routes = [
 
 
 },
-{path: '**',component: WelcomePageComponent },
+  {path: '**',component: WelcomePageComponent },
   {path:'home', component: WelcomePageComponent }
   
 ]

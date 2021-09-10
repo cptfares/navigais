@@ -1,4 +1,5 @@
 export class Container{
+    alert:boolean
     adate:any;
     fdate:any;
     name : string;
@@ -14,7 +15,8 @@ export class Container{
     flame:boolean
     description: string;
     owner:string;
-    active:boolean
+    active:boolean;
+    
         
 }
 export class sensor {
@@ -22,6 +24,16 @@ export class sensor {
         min:number
         max:number
         cureent:number
+
+
+        
+}
+
+export class notification {
+      
+        id:number
+        headline:string
+        message:string
 
 
         

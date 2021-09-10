@@ -7,7 +7,7 @@
         <h4 class="card-title"> all containers: </h4>
         <div style="float: right !important  ;" >
           <div class="addbtn">
-            <button type="button" class="btn btn-warning" >+ Add container</button>
+            <button type="button" class="btn btn-warning"  >+ Add container</button>
             </div>
         </div>
       </div>
@@ -40,15 +40,19 @@
               <tr *ngFor='let data of dataRows; let i=index;' (click)="openDialog(data)" >
                 <td>
                     {{data.id}}
+                    
                 </td>
                 <td>
                   {{data.name}}
+                 
                 </td>
                 <td>
                   {{data.start}}
+                  
                 </td>
                 <td>
-                  {{data.arrive}}
+                 {{data.arrive}} 
+                 
                 </td>
                 <td   >
                   <i style="font-size:35px ;color:red; " class="fas fa-exclamation-triangle"></i>

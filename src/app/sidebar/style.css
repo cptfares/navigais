@@ -10,3 +10,16 @@ a{
 i{
     color: white !important;
 }
+.beactive{
+    color: black !important;
+    background: #f4f3ef;
+    border-top-left-radius:40px;
+    border-bottom-left-radius:40px;
+    margin-left: 10px;
+}
+.beactive i{
+    color: black !important;
+}
+.beactive p:hover{
+    color: black !important;
+}

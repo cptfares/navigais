@@ -9,4 +9,5 @@ export class Company{
     containers:Array<string>
     archive:Array<object>
     coll:Array<string>
+    notifications:Array<object>
 }

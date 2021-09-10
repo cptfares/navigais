@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ComapniesGurdService } from 'app/services/comapnies-gurd.service';
 import { Company } from 'app/services/company';
 import { Container } from 'app/services/container';
 import { ContainerService } from 'app/services/container.service';
-import { Observable } from 'rxjs';
+import { UserInfoService } from 'app/services/user-info.service';
+import { ToastrService } from 'ngx-toastr';
+import { from, Observable } from 'rxjs';
 
 // import { ItemService } from 'app/services/companies.service';
 
@@ -18,27 +21,31 @@ declare var google: any;
 })
 export class OverviewComponent implements OnInit {
   company= new Company
-  numcontainers: Array<any>
-  num: number
   agentslist:object[]=[]
   data 
   data1 
+  listofcontainers:Array<Observable<Container>>
+  containerstList
 
   containers: any ;
   online
   offline
  dataRows :Array<Observable<Container>>
 
-  constructor(private comapnies: ComapniesGurdService, private companiesRef: ComapniesGurdService, public firebase:AngularFirestore, public route : Router, public containerservice: ContainerService ) {
+  constructor(private userinfo:UserInfoService,private database : AngularFireDatabase,private comapnies: ComapniesGurdService, private companiesRef: ComapniesGurdService, public firebase:AngularFirestore, public route : Router, public containerservice: ContainerService, private toostr: ToastrService ) {
     this.agentslist=[]
     this.dataRows=[]
     this.agentslist=[]
 this.dataRows=[]
 this.agentslist=this.comapnies.getagents()
+
 this.dataRows=this.containerservice.getagents()
+
+
   }
 
   ngOnInit(){
+ 
     var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
     var mapOptions = {
       zoom: 13,
@@ -59,8 +66,10 @@ this.dataRows=this.containerservice.getagents()
 
     this.containers = {
     headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
+    
 
 };
+
 
 
 
@@ -71,13 +80,18 @@ console.log(this.agentslist[1])
 
 
 console.log(this.dataRows)
+this.containerservice.getContainer()
+
+
+
 
 
 
 }
 
+
 setup(){
-  this.route.navigate(['dashboard/setup_container'])
+  this.route.navigate(['dashboard/add_container'])
 
 }
 getnum(){
@@ -85,6 +99,7 @@ getnum(){
 
 
 }
+
 
 
 

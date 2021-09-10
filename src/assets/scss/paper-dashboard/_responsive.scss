@@ -357,28 +357,38 @@
           > a:not([data-toggle="collapse"]),
           > [data-toggle="collapse"] + div .nav li {
             &:before{
-              border-right: 17px solid $medium-gray;
+             /* border-right: 17px solid $medium-gray;
               border-top: 17px solid transparent;
-              border-bottom: 17px solid transparent;
+              border-bottom: 17px solid transparent;*/
               content: "";
               display: inline-block;
               position: absolute;
               right: -16px;
               opacity: 1;
               top: 7px;
+              background:  #f4f3ef;
+              border-top-left-radius: 80px 80px;border-bottom-left-radius:80px 80px ;
+              width:250px;
+              height: 50px;
+          
               transition: opacity 150ms ease-in;
             }
 
             &:after{
-              border-right: 17px solid $default-body-bg;
+             /* border-right: 17px solid $default-body-bg;
               border-top: 17px solid transparent;
-              border-bottom: 17px solid transparent;
+              border-bottom: 17px solid transparent;*/
               content: "";
               display: inline-block;
               position: absolute;
               right: -17px;
               opacity: 1;
               top: 7px;
+              background: #f4f3ef;
+              border-top-left-radius: 80px 80px;border-bottom-left-radius:80px 80px ;
+              width:250px;
+              height: 50px;
+              
               transition: opacity 150ms ease-in;
             }
           }

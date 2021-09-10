@@ -6,7 +6,7 @@ $font-color:                 #66615b !default;
 $fill-font-color:            rgba(255, 255, 255, 0.8);
 $font-family-sans-serif:     'Montserrat', "Helvetica", Arial, sans-serif;
 $sans-serif-family:          'Montserrat', 'Helvetica Neue',  Arial, sans-serif;
-
+$side-color:              #394766 !default;
 
 $none:                       0   !default;
 $border-thin:                1px !default;
@@ -71,16 +71,16 @@ $default-body-bg:                 #f4f3ef !default;
 $primary-color:              #51cbce !default;
 $primary-states-color:       darken($primary-color, 10%) !default;
 
-$success-color:              #6bd098 !default;
+$success-color:              #88aaf4 !default;
 $success-states-color:       darken($success-color, 10%) !default;
 
 $info-color:                 #51bcda !default;
 $info-states-color:          darken($info-color, 10%) !default;
 
-$warning-color:              #fbc658 !default;
-$warning-states-color:       darken($warning-color, 10%) !default;
+$warning-color:              #09005F !default;
+$warning-states-color:       darken($warning-color, 5%) !default;
 
-$danger-color:               #ef8157 !default;
+$danger-color:               #F76C6C !default;
 $danger-states-color:        darken($danger-color, 8%) !default;
 
 $link-disabled-color:        #666666 !default;

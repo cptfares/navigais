@@ -52,6 +52,7 @@ export class SginUpComponent implements OnInit {
         containers:['hello', 'world'],
         archive:[{world:"ad"}, {world:"ad"}],
         coll:['hello', 'world'],
+        notifications:[{world:"ad"}, {world:"ad"}],
       }
       this.fireservice.sginupUser(this.singupForm.value,this.singupForm.value,this.company).then(async result=>{
         if (result==null ){
@@ -66,7 +67,9 @@ export class SginUpComponent implements OnInit {
     }
   }
   sginup(){
-    this.route.navigate(['login'])
+    this.route.navigate(['/login'])
   }
-
+  signup(){
+    this.route.navigate(['/agent-auth'])
+  }
 }

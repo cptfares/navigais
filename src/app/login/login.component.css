@@ -1,6 +1,6 @@
 body{
    
-    background: linear-gradient(90deg, #11183F 50%, #ffff 50%);
+    background: linear-gradient(90deg, #09005F 50%, #ffff 50%);
     position: absolute;
     margin: 0;
     padding: 0;
@@ -16,6 +16,7 @@ body{
    left: 4%;
    margin-bottom: 0;
    font-size: 24px;
+   font-weight: 800;
 }
 .design{
    position: absolute;
@@ -31,7 +32,7 @@ body{
            height:150px;
            width:300px;
            border-radius: 150px 150px 0 0;
-           background-color: #11183F;
+           background-color: #09005F;
            opacity: 0.6;
            
 }
@@ -41,13 +42,13 @@ body{
        height: 250px; /* as the half of the width */
        background-color: none;
        
-       top: 35%;
-           left: 77%;
+       top: 37.5%;
+           left: 80%;
            right: 0;
        transform: rotate(-90deg);
        border-top-left-radius: 260px;  /* 100px of height + 10px of border */
        border-top-right-radius: 260px; /* 100px of height + 10px of border */
-       border: 20px solid #11183F;
+       border: 20px solid #09005F;
        border-bottom: 0;
        opacity: 0.8;
 }
@@ -63,7 +64,7 @@ body{
    transform: rotate(-90deg);
    border-top-left-radius: 360px;  /* 100px of height + 10px of border */
    border-top-right-radius:360px; /* 100px of height + 10px of border */
-   border: 5px solid #11183F;
+   border: 5px solid #09005F;
    border-bottom: 0;
    opacity: 0.9;
 }
@@ -73,7 +74,7 @@ body{
    left:85%;
    height:40px;
    width: 40px;
-   background-color: #11183F;
+   background-color: #09005F;
    border-radius: 50%;
    display: inline-block;
 }
@@ -83,7 +84,7 @@ body{
    left:87.5%;
    height:30px;
    width: 30px;
-   background-color: #11183F;
+   background-color: #09005F;
    border-radius: 50%;
    display: inline-block;
 }
@@ -93,7 +94,7 @@ body{
    left:89.9%;
    height:15px;
    width: 15px;
-   background-color: #11183F;
+   background-color: #09005F;
    border-radius: 50%;
    display: inline-block;
 }
@@ -104,6 +105,14 @@ body{
    left: 4%;
    margin-top: 18px;
    font-size: 18px;
+   font-weight: 700;
+}
+.centarino{
+   font-size: 35px;
+   font-weight: 750;
+   margin-top: 10px;
+   margin-left: 150px;
+   color: #09005F;
 }
 .center{
    position:absolute;
@@ -118,7 +127,7 @@ body{
 .center h1{
    text-align:center;
    padding: 0 0 20px 0;
-   color: #11183F;
+   color: #09005F;
 }
 .center form{
    padding: 0 40px;
@@ -157,13 +166,13 @@ margin: 30px 0;
    left: 0;
    width: 100%;
    height: 2px;
-   background: #11183F;
+   background: #09005F;
    transition: .5s;
 }
 .int input:focus ~ label,
 .int input:valid~label{
    top: -5px;
-   color: #11183F;
+   color: #09005F;
 }
 .int input:focus ~ span::before,
 .int input:valid~span::before{
@@ -181,7 +190,7 @@ input[type="submit"]{
    width: 100%;
    height: 50px;
    border: 1px solid;
-   background: #11183F;
+   background: #09005F;
    border-radius: 25px;
    font-size: 18px;
    color: #e9f4fb;
@@ -190,7 +199,7 @@ input[type="submit"]{
    outline: none;
 }
 input[type="submit"]:hover{
-   border-color: #11183F;
+   border-color: #09005F;
    transition: .5s;
 }
 .come{
@@ -200,7 +209,7 @@ input[type="submit"]:hover{
    color: #666666;
 }
 .come a{
-   color: #11183F;
+   color: #09005F;
    text-decoration:none ;
    font-weight: 700;
 }

@@ -13,6 +13,8 @@ import { TypographyComponent }      from '../../pages/profile-overview/typograph
 import { IconsComponent }           from '../../pages/icons/icons.component';
 import { MapsComponent }            from '../../pages/maps/maps.component';
 import { NotificationsComponent }   from '../../pages/notifications/notifications.component';
+import { NotificationComponent } from '../../pages/notification/notification.component';
+
 import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component';
 import { OverviewComponent } from 'app/pages/overview/overview.component';
 
@@ -36,7 +38,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    OverviewComponent
+    OverviewComponent,
+    NotificationComponent
 
 
   ],

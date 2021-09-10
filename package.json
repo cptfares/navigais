@@ -42,6 +42,7 @@
     "moment": "2.29.1",
     "ng2-order-pipe": "^0.1.5",
     "ng2-search-filter": "^0.5.1",
+    "ngx-clipboard": "^14.0.1",
     "ngx-pagination": "^5.1.1",
     "ngx-toastr": "13.1.0",
     "rxjs": "6.6.3",
