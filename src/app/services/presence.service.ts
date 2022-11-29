@@ -40,7 +40,7 @@ export class PresenceService {
   }
 
   get timestamp() {
-    return "lyoum sbah";
+    return "1";
   }
 
   updateOnUser() {
