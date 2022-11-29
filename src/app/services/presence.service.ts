@@ -40,7 +40,7 @@ export class PresenceService {
   }
 
   get timestamp() {
-    return "1";
+    return "online";
   }
 
   updateOnUser() {
